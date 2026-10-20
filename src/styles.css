@@ -421,6 +421,38 @@ textarea {
   font-size: 11px;
 }
 
+/* ---------- format toggle ---------- */
+.format-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+}
+.format-toggle-btn {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.format-toggle-btn:hover {
+  color: var(--text);
+  background: var(--border);
+}
+.format-toggle-btn.active {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
 /* ---------- misc ---------- */
 .empty {
   text-align: center;

@@ -14,16 +14,35 @@ A fast, personal, **local-first web application** for tracking your badminton ma
 
 ## ✨ Features
 
-- **📊 Comprehensive Dashboard** — Win rate %, current streak (wins/losses), average points per set, recent form indicators (W/L dots), top rivals preview, interactive points-per-match Recharts graph, and recent matches table.
-- **⚔️ Head-to-Head (H2H) Analysis** — Deep rival comparison tracking overall record, win percentage, set tallies, point differentials, format breakdown (singles vs doubles), form streaks, doubles partner synergy against that rival, and a comprehensive opponents comparison table.
+- **📊 Comprehensive Dashboard** — Win rate %, current streak (wins/losses), average points per set, recent form indicators (W/L dots), top rivals preview with 1-click navigation, interactive points-per-match Recharts graph, and recent matches table.
+- **⚔️ Head-to-Head (H2H) Analysis** — Dedicated rival explorer comparing your record against individual rivals or doubles teams. Includes win/loss ratio bars, set tallies, net point differentials, format breakdown (singles vs doubles), active streaks, partner chemistry against that specific opponent, and complete matchup history.
 - **🔍 Filterable Match History** — Full-text search across opponents, partners, and personal notes. Filter by format (Singles/Doubles), result (Wins/Losses), and date ranges, with a 1-click filter reset.
 - **🏸 Singles & Doubles Support** — Track singles sparrings or doubles pairings. Name autocomplete provides instant dropdown suggestions based on previous matches.
 - **🤝 Partner Chemistry & Opponent Breakdown** — Dedicated partner performance view showing your record, set ratios, and win percentage with each partner and against specific opponent pairs.
-- **📝 Match Detail & Set Breakdown** — Clean set-by-set breakdown highlighting set winners in green, total points for/against, and match notes.
+- **📝 Match Detail & Set Breakdown** — Clean set-by-set breakdown highlighting set winners in green, total points for/against, personal notes, and direct shortcuts to view head-to-head records against opponents.
 - **⚖️ BWF-Compliant Rules & Validation** — Prevents tied sets (badminton sets cannot end in a draw) and ensures best-of-3 matches have a decisive winner.
 - **🔄 Cross-Tab Synchronization** — Real-time state syncing across open browser tabs via Web `BroadcastChannel`. Adding or editing a match in one tab instantly updates all other tabs.
 - **📱 Responsive & Court-Ready** — Mobile-first layout with smooth horizontal touch-scrolling data tables, accessible modal dialogs (no disruptive native browser popups), and an eye-friendly dark theme.
 - **💾 Backup & Restore** — Fast batch import and export via structured JSON. Re-importing existing files safely upserts by `id` with zero duplicates.
+
+---
+
+## ⚔️ Head-to-Head (H2H) Explorer
+
+The **Head-to-Head (H2H)** view (`#/h2h`) offers a deep analytical dive into your rivalries:
+
+* **Grouping Flexibility**:
+  * **By Individual Player**: Evaluates records against individual players across singles and doubles pairings.
+  * **By Opponent Pair**: Evaluates records against specific opponent teams in doubles play.
+* **Opponents Leaderboard**: Sortable by matches played, win percentage, opponent name, and last played date.
+* **Deep Rival Breakdown**:
+  * **Win/Loss Ratio Visualizer**: Proportional visual bar comparing wins and losses.
+  * **Set & Point Differentials**: Tracks total sets won/lost, points scored vs conceded, and net $+/-$ margins.
+  * **Format Breakdown**: Singles record vs Doubles record against the rival.
+  * **Doubles Partner Synergy**: Reveals which teammates you paired with against this rival and your record with each.
+  * **Active Streak & Form**: Real-time streak tracking (e.g. `🔥 3W Streak` or `1L`) and recent form dots ($W$/$L$).
+  * **Match History**: Complete chronological history of matches against this rival, with links to set details.
+* **Deep-Link URLs**: Direct routing via `#/h2h?opponent=PlayerName`, allowing 1-click navigation from Dashboard rival cards and Match Detail pages.
 
 ---
 
@@ -161,7 +180,8 @@ src/
 │   ├── SummaryCards.tsx     # Stat cards (matches, win rate, streak, avg points)
 │   └── ConfirmModal.tsx     # Accessible, themed confirmation dialog
 └── views/
-    ├── Dashboard.tsx        # Overview cards, recent form, Recharts trend graph
+    ├── Dashboard.tsx        # Overview cards, recent form, Top Rivals, Recharts trend graph
+    ├── HeadToHead.tsx       # Dedicated H2H rival comparison and opponent leaderboard
     ├── History.tsx          # Full match history with multi-parameter filters
     ├── MatchDetail.tsx      # Set-by-set breakdown and match actions
     ├── MatchEdit.tsx        # Add / edit match form with live validation
@@ -173,7 +193,7 @@ src/
 
 ## 🔮 Roadmap Ideas
 
-- [ ] **Head-to-Head (H2H) Explorer** — Dedicated opponent profile page with rivalry stats, score margins, and past matches.
+- [x] **Head-to-Head (H2H) Explorer** — Dedicated opponent profile page with rivalry stats, score margins, and past matches.
 - [ ] **Live Court-Side Scorekeeper** — Tap-to-score live clicker with BWF service court indicator (even/odd), auto set switches, and 1-tap save.
 - [ ] **PWA Offline Support** — Installable to home screen via service worker (`vite-plugin-pwa`) for offline court use in low-reception gyms.
 - [ ] **CSV / Spreadsheet Export** — Export match logs directly to `.csv` for analysis in Excel or Google Sheets.

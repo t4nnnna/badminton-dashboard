@@ -1,127 +1,185 @@
 # 🏸 Badminton Dashboard
 
-A personal, local-first web app for tracking your badminton matches — scores,
-opponents, partners, and the stats that fall out of them. No server, no
-accounts: your data lives in your browser (IndexedDB) with JSON
-export/import for backup.
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-18-61dafb?logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-6-646cff?logo=vite)](https://vitejs.dev/)
+[![Storage](https://img.shields.io/badge/Storage-IndexedDB-3ecf8e)](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
+[![License](https://img.shields.io/badge/License-Private-lightgrey)](#license)
 
-## Features
+A fast, personal, **local-first web application** for tracking your badminton matches — scores, opponents, partner chemistry, and derived stats. 
 
-- **Dashboard** — win rate, current streak, points per set, recent form
-  (W/L dots), points-per-match chart, recent matches
-- **Match history** — searchable, filterable list (opponent, notes, format,
-  result, date range)
-- **Match detail** — set-by-set score breakdown with per-set winners
-- **Add / edit matches** — date, singles/doubles, opponent name(s), partner
-  (doubles), up to 3 sets, notes; live W/L preview while you type
-- **Name autocomplete** — opponent and partner fields offer a dropdown of
-  every name you've logged before (or type a new one)
-- **Partner performance** — your doubles record by partner, and by the
-  opposing pair
-- **Backup & restore** — export/import all data as JSON; delete-all with
-  double confirm
+**Zero server, no account creation, no tracking:** your data stays 100% in your browser (IndexedDB) with instant JSON export and import for seamless backups and device transfers.
 
-## Tech stack
+---
 
-| Layer     | Choice                          | Why                                    |
-| --------- | ------------------------------- | -------------------------------------- |
-| Framework | React 18 + TypeScript           | type-safe data model, fast DX          |
-| Build     | Vite 6                          | instant dev server, one-command build  |
-| Routing   | react-router-dom (hash router)  | works from any static host / `file://` |
-| Storage   | IndexedDB via [`idb`](https://github.com/jakearchibald/idb) | durable, offline, no server |
-| Charts    | Recharts                        | points-per-match trend                 |
-| Dates     | date-fns                        | parsing/formatting                     |
-| Styling   | hand-rolled CSS, dark theme     | zero build-step styling deps           |
+## ✨ Features
 
-## Quick start
+- **📊 Comprehensive Dashboard** — Win rate %, current streak (wins/losses), average points per set, recent form indicators (W/L dots), interactive points-per-match Recharts graph, and recent matches table.
+- **🔍 Filterable Match History** — Full-text search across opponents, partners, and personal notes. Filter by format (Singles/Doubles), result (Wins/Losses), and date ranges, with a 1-click filter reset.
+- **🏸 Singles & Doubles Support** — Track singles sparrings or doubles pairings. Name autocomplete provides instant dropdown suggestions based on previous matches.
+- **🤝 Partner Chemistry & Opponent Breakdown** — Dedicated partner performance view showing your record, set ratios, and win percentage with each partner and against specific opponent pairs.
+- **📝 Match Detail & Set Breakdown** — Clean set-by-set breakdown highlighting set winners in green, total points for/against, and match notes.
+- **⚖️ BWF-Compliant Rules & Validation** — Prevents tied sets (badminton sets cannot end in a draw) and ensures best-of-3 matches have a decisive winner.
+- **🔄 Cross-Tab Synchronization** — Real-time state syncing across open browser tabs via Web `BroadcastChannel`. Adding or editing a match in one tab instantly updates all other tabs.
+- **📱 Responsive & Court-Ready** — Mobile-first layout with smooth horizontal touch-scrolling data tables, accessible modal dialogs (no disruptive native browser popups), and an eye-friendly dark theme.
+- **💾 Backup & Restore** — Fast batch import and export via structured JSON. Re-importing existing files safely upserts by `id` with zero duplicates.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology | Why |
+| :--- | :--- | :--- |
+| **Framework** | React 18 + TypeScript | Strict type safety, predictable component model, fast DX |
+| **Build Tool** | Vite 6 | Sub-second HMR, optimized production builds |
+| **Routing** | React Router (`HashRouter`) | Client-side routing that works out-of-the-box on GitHub Pages and static hosts with zero server redirect configuration |
+| **Storage** | IndexedDB via [`idb`](https://github.com/jakearchibald/idb) | Durable, high-capacity client-side database; zero backend required |
+| **Realtime Sync** | `BroadcastChannel` API | Automatic cross-tab sync without polling or server connections |
+| **Visualizations**| Recharts | Lightweight point trend and score difference charts |
+| **Dates** | `date-fns` v4 | Modern, timezone-safe date parsing and formatting |
+| **Performance** | `React.lazy` + Manual Chunking | Initial JS payload under **6 kB**, deferring heavy chart libraries until needed |
+| **Styling** | Vanilla CSS (Dark Theme) | Zero CSS runtime overhead, pure CSS variables, fully responsive |
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm, pnpm, or yarn
+
+### Installation & Development
 
 ```bash
+# Clone the repository
+git clone https://github.com/t4nnnna/badminton-dashboard.git
+cd badminton-dashboard
+
+# Install dependencies
 npm install
-npm run dev        # → http://localhost:5173
+
+# Start local development server
+npm run dev
 ```
 
-### Production build
+Visit [`http://localhost:5173`](http://localhost:5173) in your browser.
+
+### Production Build
 
 ```bash
-npm run build      # type-checks (tsc -b) then bundles into dist/
-npm run preview    # serve the built app locally
+# Type-check and bundle into dist/
+npm run build
+
+# Preview production build locally
+npm run preview
 ```
 
-`dist/` is fully static — drop it on GitHub Pages, Netlify, any static host,
-or open `dist/index.html` directly.
+`dist/` is completely static. Because the app uses `HashRouter`, you can deploy it directly to **GitHub Pages**, **Cloudflare Pages**, **Netlify**, **Vercel**, or serve it from any static file server without special redirect rules.
 
-## Data model
+---
 
-A `Match` is stored in IndexedDB (`badminton` database, `matches` store):
+## 📐 Data Model
+
+Every match is stored in IndexedDB under the `badminton` database (`matches` store):
 
 ```ts
+interface SetScore {
+  me: number;
+  them: number;
+}
+
 interface Match {
-  id: string;
-  date: string;          // yyyy-mm-dd
+  id: string;               // Unique ID (UUID or timestamp-seeded)
+  date: string;             // ISO calendar date: YYYY-MM-DD
   format: 'singles' | 'doubles';
-  opponents: string[];   // 1 name for singles, up to 2 for doubles
-  partner: string;       // your teammate (doubles only, '' otherwise)
-  sets: { me: number; them: number }[];  // 1–3 sets, in order played
-  notes: string;
-  createdAt: string;     // ISO timestamp
-  updatedAt: string;     // ISO timestamp
+  opponents: string[];      // 1 name for singles, up to 2 for doubles
+  partner: string;          // Teammate name (doubles only, '' for singles)
+  sets: SetScore[];         // 1 to 3 sets in order played
+  notes: string;            // Notes, venue, or court observations
+  createdAt: string;        // ISO timestamp
+  updatedAt: string;        // ISO timestamp
 }
 ```
 
-All other stats (win rate, streaks, sets, points, head-to-head, partner
-records) are **derived at read time** — nothing is stored twice.
+> **Derived Stats Philosophy**:
+> All statistics (win rate, winning/losing streaks, sets won/lost, points differential, partner records, and head-to-head metrics) are **derived at read time**. This prevents data duplication, cache invalidation bugs, and stale database records.
 
-Result of a match = more sets won than lost (a level set count is a loss).
+---
 
-### Backup format
+## 📦 Backup & Data Format
 
-`Settings → Export JSON` produces:
+Navigating to **Settings → Export JSON** downloads a formatted JSON file:
 
 ```json
 {
   "app": "badminton-dashboard",
   "version": 1,
-  "exportedAt": "2026-01-15T10:00:00.000Z",
-  "matches": [ /* Match objects */ ]
+  "exportedAt": "2026-10-20T20:00:00.000Z",
+  "matches": [
+    {
+      "id": "e9b27d42-4217-4835-bd84-3c5825310e30",
+      "date": "2026-10-20",
+      "format": "singles",
+      "opponents": ["Viktor Axelsen"],
+      "partner": "",
+      "sets": [
+        { "me": 21, "them": 19 },
+        { "me": 18, "them": 21 },
+        { "me": 21, "them": 17 }
+      ],
+      "notes": "Tough 3-setter, great footwork on drop shots.",
+      "createdAt": "2026-10-20T19:30:00.000Z",
+      "updatedAt": "2026-10-20T19:30:00.000Z"
+    }
+  ]
 }
 ```
 
-Import upserts by `id`, so re-importing an old backup won't duplicate.
+* **Upsert on Import**: Importing an existing backup file updates matches by `id` rather than duplicating them.
+* **Batch Transactions**: Imports are processed in a single fast IndexedDB transaction.
 
-## Project structure
+---
+
+## 📂 Project Structure
 
 ```
 src/
-  main.tsx                 # entry point
-  App.tsx                  # routes
-  types.ts                 # Match / SetScore types
-  styles.css               # dark theme
-  lib/
-    db.ts                  # IndexedDB CRUD + export/import
-    stats.ts               # derived stats (summary, head-to-head, partner stats)
-    format.ts              # date/score/name display helpers
-  hooks/
-    useMatches.ts          # shared data hook (list/add/remove/import/clear)
-  components/
-    Layout.tsx             # top nav
-    MatchList.tsx          # filterable matches table
-    SummaryCards.tsx       # dashboard stat cards
-  views/
-    Dashboard.tsx          # overview + chart + recent matches
-    History.tsx            # full history with filters
-    MatchDetail.tsx        # one match, set-by-set
-    MatchEdit.tsx          # add/edit form (name autocomplete lives here)
-    Partners.tsx           # partner performance view
-    Settings.tsx           # backup & restore
+├── main.tsx                 # Application entry point
+├── App.tsx                  # HashRouter routes with React.lazy code-splitting
+├── types.ts                 # TypeScript domain interfaces (Match, SetScore, GameFormat)
+├── styles.css               # Dark theme, layout, responsive utilities, animations
+├── lib/
+│   ├── db.ts                # IndexedDB CRUD, batch transactions, cross-tab sync
+│   ├── stats.ts             # Pure derived analytics (win rate, streaks, H2H, partners)
+│   └── format.ts            # Date formatting, score presentation, ID generation
+├── hooks/
+│   └── useMatches.ts        # Primary data hook with cross-tab event listeners
+├── components/
+│   ├── Layout.tsx           # Sticky navigation header and container layout
+│   ├── MatchList.tsx        # Filterable match table with responsive scroll
+│   ├── SummaryCards.tsx     # Stat cards (matches, win rate, streak, avg points)
+│   └── ConfirmModal.tsx     # Accessible, themed confirmation dialog
+└── views/
+    ├── Dashboard.tsx        # Overview cards, recent form, Recharts trend graph
+    ├── History.tsx          # Full match history with multi-parameter filters
+    ├── MatchDetail.tsx      # Set-by-set breakdown and match actions
+    ├── MatchEdit.tsx        # Add / edit match form with live validation
+    ├── Partners.tsx         # Doubles partner chemistry and record by opponent
+    └── Settings.tsx         # JSON backup export, import, and data management
 ```
 
-## Roadmap ideas
+---
 
-- Live scoring mode (tap-to-increment, auto-declare sets)
-- Head-to-head page per opponent
-- CSV export
-- PWA manifest (pin to home screen, use at the court)
+## 🔮 Roadmap Ideas
 
-## License
+- [ ] **Head-to-Head (H2H) Explorer** — Dedicated opponent profile page with rivalry stats, score margins, and past matches.
+- [ ] **Live Court-Side Scorekeeper** — Tap-to-score live clicker with BWF service court indicator (even/odd), auto set switches, and 1-tap save.
+- [ ] **PWA Offline Support** — Installable to home screen via service worker (`vite-plugin-pwa`) for offline court use in low-reception gyms.
+- [ ] **CSV / Spreadsheet Export** — Export match logs directly to `.csv` for analysis in Excel or Google Sheets.
+- [ ] **Singles vs. Doubles Filter on Dashboard** — Toggle dashboard analytics specifically for singles or doubles play.
 
-Private / personal project. All rights reserved.
+---
+
+## 📄 License
+
+Personal / private project. All rights reserved.

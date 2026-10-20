@@ -14,6 +14,7 @@ export default function Layout() {
               Dashboard
             </NavLink>
             <NavLink to="/matches">Matches</NavLink>
+            <NavLink to="/h2h">H2H</NavLink>
             <NavLink to="/partners">Partners</NavLink>
             <NavLink to="/settings" className="nav-settings" title="Settings & data">⚙️</NavLink>
             <NavLink to="/new" className="btn btn-primary btn-sm nav-cta">

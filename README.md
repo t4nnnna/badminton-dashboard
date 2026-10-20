@@ -14,7 +14,8 @@ A fast, personal, **local-first web application** for tracking your badminton ma
 
 ## ✨ Features
 
-- **📊 Comprehensive Dashboard** — Win rate %, current streak (wins/losses), average points per set, recent form indicators (W/L dots), interactive points-per-match Recharts graph, and recent matches table.
+- **📊 Comprehensive Dashboard** — Win rate %, current streak (wins/losses), average points per set, recent form indicators (W/L dots), top rivals preview, interactive points-per-match Recharts graph, and recent matches table.
+- **⚔️ Head-to-Head (H2H) Analysis** — Deep rival comparison tracking overall record, win percentage, set tallies, point differentials, format breakdown (singles vs doubles), form streaks, doubles partner synergy against that rival, and a comprehensive opponents comparison table.
 - **🔍 Filterable Match History** — Full-text search across opponents, partners, and personal notes. Filter by format (Singles/Doubles), result (Wins/Losses), and date ranges, with a 1-click filter reset.
 - **🏸 Singles & Doubles Support** — Track singles sparrings or doubles pairings. Name autocomplete provides instant dropdown suggestions based on previous matches.
 - **🤝 Partner Chemistry & Opponent Breakdown** — Dedicated partner performance view showing your record, set ratios, and win percentage with each partner and against specific opponent pairs.

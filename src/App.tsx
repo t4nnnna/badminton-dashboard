@@ -5,6 +5,7 @@ import Layout from './components/Layout';
 const Dashboard = lazy(() => import('./views/Dashboard'));
 const History = lazy(() => import('./views/History'));
 const MatchDetail = lazy(() => import('./views/MatchDetail'));
+const HeadToHead = lazy(() => import('./views/HeadToHead'));
 const Partners = lazy(() => import('./views/Partners'));
 const MatchEdit = lazy(() => import('./views/MatchEdit'));
 const Settings = lazy(() => import('./views/Settings'));
@@ -36,6 +37,14 @@ export default function App() {
             element={
               <Suspense fallback={<RouteLoading />}>
                 <History />
+              </Suspense>
+            }
+          />
+          <Route
+            path="h2h"
+            element={
+              <Suspense fallback={<RouteLoading />}>
+                <HeadToHead />
               </Suspense>
             }
           />

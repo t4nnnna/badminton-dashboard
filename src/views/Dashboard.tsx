@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useMemo } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { format, parseISO } from 'date-fns';
 import {
   CartesianGrid,
@@ -12,10 +13,12 @@ import {
 import { useMatches } from '../hooks/useMatches';
 import SummaryCards from '../components/SummaryCards';
 import MatchList from '../components/MatchList';
-import { pointSeries, summarize } from '../lib/stats';
+import { h2hStats, pointSeries, summarize } from '../lib/stats';
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   const { matches, loading } = useMatches();
+  const topRivals = useMemo(() => h2hStats(matches).slice(0, 5), [matches]);
   const s = summarize(matches);
   const series = pointSeries(matches);
 
@@ -79,19 +82,107 @@ export default function Dashboard() {
               <XAxis
                 dataKey="date"
                 tick={{ fill: '#8d97a8', fontSize: 11 }}
-                tickFormatter={(d: string) => format(parseISO(d), 'd/M')}
+                tickFormatter={(d: string) => {
+                  try {
+                    return format(parseISO(d), 'd/M');
+                  } catch {
+                    return d;
+                  }
+                }}
               />
               <YAxis tick={{ fill: '#8d97a8', fontSize: 11 }} allowDecimals={false} />
               <Tooltip
                 contentStyle={{ background: '#1c2330', border: '1px solid #2a3342', borderRadius: 8 }}
                 labelStyle={{ color: '#e7ecf3' }}
-                labelFormatter={(label) => format(parseISO(String(label)), 'd MMM yyyy')}
+                labelFormatter={(label) => {
+                  try {
+                    return format(parseISO(String(label)), 'd MMM yyyy');
+                  } catch {
+                    return String(label);
+                  }
+                }}
                 formatter={(value, name) => [String(value), name === 'me' ? 'My points' : 'Opponent']}
               />
               <Line type="monotone" dataKey="me" name="me" stroke="#3ecf8e" strokeWidth={2} dot={{ r: 2 }} />
               <Line type="monotone" dataKey="them" name="them" stroke="#e5484d" strokeWidth={2} dot={{ r: 2 }} />
             </LineChart>
           </ResponsiveContainer>
+        </div>
+      )}
+
+      {topRivals.length > 0 && (
+        <div className="card">
+          <div className="row-between" style={{ marginBottom: 12 }}>
+            <h2>Top Rivals &amp; Head to Head</h2>
+            <Link to="/h2h" className="small">
+              All opponents →
+            </Link>
+          </div>
+          <div className="table-responsive">
+            <table className="matches">
+              <thead>
+                <tr>
+                  <th>Opponent</th>
+                  <th>Played</th>
+                  <th>Record (W–L)</th>
+                  <th>Win %</th>
+                  <th>Streak</th>
+                  <th aria-label="actions" />
+                </tr>
+              </thead>
+              <tbody>
+                {topRivals.map((r) => (
+                  <tr
+                    key={r.opponent}
+                    onClick={() => navigate(`/h2h?opponent=${encodeURIComponent(r.opponent)}`)}
+                    tabIndex={0}
+                    role="button"
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        navigate(`/h2h?opponent=${encodeURIComponent(r.opponent)}`);
+                      }
+                    }}
+                  >
+                    <td>
+                      <strong>{r.opponent}</strong>
+                    </td>
+                    <td>{r.matches}</td>
+                    <td>
+                      <span style={{ color: 'var(--accent)', fontWeight: 600 }}>{r.wins}</span>
+                      {' – '}
+                      <span style={{ color: 'var(--danger)', fontWeight: 600 }}>{r.losses}</span>
+                    </td>
+                    <td
+                      style={{
+                        color: r.winRate >= 0.5 ? 'var(--accent)' : 'var(--danger)',
+                        fontWeight: 600,
+                      }}
+                    >
+                      {Math.round(r.winRate * 100)}%
+                    </td>
+                    <td>
+                      {r.streak.count > 0 ? (
+                        <span className={`badge ${r.streak.type === 'W' ? 'w' : 'l'}`}>
+                          {r.streak.type}{r.streak.count}
+                        </span>
+                      ) : (
+                        '—'
+                      )}
+                    </td>
+                    <td>
+                      <span
+                        className="btn btn-ghost btn-sm"
+                        style={{ padding: '2px 8px', fontSize: 12 }}
+                      >
+                        H2H →
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 

@@ -2,11 +2,11 @@ import type { Match } from '../types';
 import { opponentNames } from './format';
 
 export function setsWon(m: Match): number {
-  return m.sets.filter((s) => s.me > s.them).length;
+  return (m?.sets ?? []).filter((s) => (s?.me ?? 0) > (s?.them ?? 0)).length;
 }
 
 export function setsLost(m: Match): number {
-  return m.sets.filter((s) => s.them > s.me).length;
+  return (m?.sets ?? []).filter((s) => (s?.them ?? 0) > (s?.me ?? 0)).length;
 }
 
 export function matchWon(m: Match): boolean {
@@ -14,11 +14,11 @@ export function matchWon(m: Match): boolean {
 }
 
 export function pointsFor(m: Match): number {
-  return m.sets.reduce((a, s) => a + s.me, 0);
+  return (m?.sets ?? []).reduce((a, s) => a + (s?.me || 0), 0);
 }
 
 export function pointsAgainst(m: Match): number {
-  return m.sets.reduce((a, s) => a + s.them, 0);
+  return (m?.sets ?? []).reduce((a, s) => a + (s?.them || 0), 0);
 }
 
 export interface Summary {
@@ -87,6 +87,34 @@ export interface HeadToHead {
   wins: number;
 }
 
+export interface H2HPartnerRecord {
+  partner: string;
+  matches: number;
+  wins: number;
+  losses: number;
+  winRate: number;
+}
+
+export interface H2HOpponentSummary {
+  opponent: string;
+  matches: number;
+  wins: number;
+  losses: number;
+  winRate: number;
+  setsWon: number;
+  setsLost: number;
+  pointsFor: number;
+  pointsAgainst: number;
+  pointDiff: number;
+  lastPlayed: string;
+  streak: { type: 'W' | 'L'; count: number };
+  recentForm: ('W' | 'L')[];
+  singles: { matches: number; wins: number; losses: number; winRate: number };
+  doubles: { matches: number; wins: number; losses: number; winRate: number };
+  partners: H2HPartnerRecord[];
+  matchesList: Match[];
+}
+
 export function headToHead(matches: Match[]): HeadToHead[] {
   const map = new Map<string, HeadToHead>();
   for (const m of matches) {
@@ -100,6 +128,173 @@ export function headToHead(matches: Match[]): HeadToHead[] {
     }
   }
   return [...map.values()].sort((a, b) => b.played - a.played);
+}
+
+export function h2hStats(
+  matches: Match[],
+  mode: 'individual' | 'pair' = 'individual',
+): H2HOpponentSummary[] {
+  interface Acc {
+    display: string;
+    matchesList: Match[];
+    singlesMatches: Match[];
+    doublesMatches: Match[];
+    partnersMap: Map<string, { display: string; matches: number; wins: number; losses: number }>;
+  }
+
+  const map = new Map<string, Acc>();
+
+  for (const m of matches) {
+    let opponentKeys: { key: string; display: string }[] = [];
+
+    if (mode === 'pair') {
+      const display = opponentNames(m.opponents);
+      opponentKeys = [{ key: display.toLowerCase(), display }];
+    } else {
+      const names = (m.opponents ?? []).map((o) => o.trim()).filter(Boolean);
+      if (names.length === 0) {
+        opponentKeys = [{ key: '(unknown)', display: '(unknown)' }];
+      } else {
+        const seen = new Set<string>();
+        for (const name of names) {
+          const k = name.toLowerCase();
+          if (!seen.has(k)) {
+            seen.add(k);
+            opponentKeys.push({ key: k, display: name });
+          }
+        }
+      }
+    }
+
+    for (const { key, display } of opponentKeys) {
+      let entry = map.get(key);
+      if (!entry) {
+        entry = {
+          display,
+          matchesList: [],
+          singlesMatches: [],
+          doublesMatches: [],
+          partnersMap: new Map(),
+        };
+        map.set(key, entry);
+      }
+
+      entry.matchesList.push(m);
+      if (m.format === 'singles') {
+        entry.singlesMatches.push(m);
+      } else {
+        entry.doublesMatches.push(m);
+        const pName = (m.partner ?? '').trim();
+        if (pName) {
+          const pKey = pName.toLowerCase();
+          let pEntry = entry.partnersMap.get(pKey);
+          if (!pEntry) {
+            pEntry = { display: pName, matches: 0, wins: 0, losses: 0 };
+            entry.partnersMap.set(pKey, pEntry);
+          }
+          pEntry.matches += 1;
+          if (matchWon(m)) pEntry.wins += 1;
+          else pEntry.losses += 1;
+        }
+      }
+    }
+  }
+
+  return [...map.values()]
+    .map((e) => {
+      // Sort matches newest first (assuming matches input is already newest-first or sort by date)
+      const sortedMatches = [...e.matchesList].sort((a, b) => {
+        if (a.date !== b.date) return (b.date || '').localeCompare(a.date || '');
+        return (b.createdAt || '').localeCompare(a.createdAt || '');
+      });
+
+      const total = sortedMatches.length;
+      const wins = sortedMatches.filter(matchWon).length;
+      const losses = total - wins;
+      const setsW = sortedMatches.reduce((acc, m) => acc + setsWon(m), 0);
+      const setsL = sortedMatches.reduce((acc, m) => acc + setsLost(m), 0);
+      const ptsFor = sortedMatches.reduce((acc, m) => acc + pointsFor(m), 0);
+      const ptsAgainst = sortedMatches.reduce((acc, m) => acc + pointsAgainst(m), 0);
+
+      // Chronological for form and streak
+      const chrono = [...sortedMatches].reverse();
+      const form = chrono.map((m) => (matchWon(m) ? 'W' : 'L')) as ('W' | 'L')[];
+      let streak = { type: 'W' as 'W' | 'L', count: 0 };
+      if (total > 0) {
+        const last = form[form.length - 1];
+        let n = 0;
+        for (let i = form.length - 1; i >= 0; i--) {
+          if (form[i] === last) n++;
+          else break;
+        }
+        streak = { type: last, count: n };
+      }
+
+      const sWins = e.singlesMatches.filter(matchWon).length;
+      const sTotal = e.singlesMatches.length;
+      const dWins = e.doublesMatches.filter(matchWon).length;
+      const dTotal = e.doublesMatches.length;
+
+      const partners = [...e.partnersMap.values()]
+        .map((p) => ({
+          partner: p.display,
+          matches: p.matches,
+          wins: p.wins,
+          losses: p.losses,
+          winRate: p.matches ? p.wins / p.matches : 0,
+        }))
+        .sort((a, b) => b.matches - a.matches);
+
+      return {
+        opponent: e.display,
+        matches: total,
+        wins,
+        losses,
+        winRate: total ? wins / total : 0,
+        setsWon: setsW,
+        setsLost: setsL,
+        pointsFor: ptsFor,
+        pointsAgainst: ptsAgainst,
+        pointDiff: ptsFor - ptsAgainst,
+        lastPlayed: sortedMatches[0]?.date ?? '',
+        streak,
+        recentForm: form.slice(-5),
+        singles: {
+          matches: sTotal,
+          wins: sWins,
+          losses: sTotal - sWins,
+          winRate: sTotal ? sWins / sTotal : 0,
+        },
+        doubles: {
+          matches: dTotal,
+          wins: dWins,
+          losses: dTotal - dWins,
+          winRate: dTotal ? dWins / dTotal : 0,
+        },
+        partners,
+        matchesList: sortedMatches,
+      };
+    })
+    .sort((a, b) => {
+      if (b.matches !== a.matches) return b.matches - a.matches;
+      return b.winRate - a.winRate;
+    });
+}
+
+export function getH2HForOpponent(
+  matches: Match[],
+  opponentName: string,
+  mode: 'individual' | 'pair' = 'individual',
+): H2HOpponentSummary | null {
+  const all = h2hStats(matches, mode);
+  const target = opponentName.trim().toLowerCase();
+  const found = all.find((h) => h.opponent.toLowerCase() === target);
+  if (found) return found;
+
+  // If not found in current mode, try the other mode
+  const alternateMode = mode === 'individual' ? 'pair' : 'individual';
+  const altAll = h2hStats(matches, alternateMode);
+  return altAll.find((h) => h.opponent.toLowerCase() === target) ?? null;
 }
 
 export interface PointRow {

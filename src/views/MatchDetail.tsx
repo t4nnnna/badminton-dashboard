@@ -84,6 +84,17 @@ export default function MatchDetail() {
           <Link className="btn" to={`/match/${m.id}/edit`}>
             Edit
           </Link>
+          {m.opponents
+            .filter((o) => Boolean(o && o.trim()))
+            .map((opp) => (
+              <Link
+                key={opp}
+                className="btn btn-ghost"
+                to={`/h2h?opponent=${encodeURIComponent(opp.trim())}`}
+              >
+                H2H vs {opp.trim()}
+              </Link>
+            ))}
           <button
             type="button"
             className="btn btn-danger"

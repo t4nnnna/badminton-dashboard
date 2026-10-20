@@ -13,6 +13,10 @@ export function useMatches() {
 
   useEffect(() => {
     void refresh();
+    const unsubscribe = db.onDBSync(() => {
+      void refresh();
+    });
+    return unsubscribe;
   }, [refresh]);
 
   const add = useCallback(
@@ -31,10 +35,10 @@ export function useMatches() {
     [refresh],
   );
 
-  /** Import a list; matches with existing ids are upserted. */
+  /** Import a list in a single batch transaction; matches with existing ids are upserted. */
   const importAll = useCallback(
     async (list: Match[]) => {
-      for (const m of list) await db.putMatch(m);
+      await db.putMatches(list);
       await refresh();
     },
     [refresh],

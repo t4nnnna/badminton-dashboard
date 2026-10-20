@@ -86,11 +86,17 @@ function MatchForm({ initial, onDone }: { initial?: Match; onDone: () => void })
 
   async function submit(e: FormEvent) {
     e.preventDefault();
-    const cleanNames = opponents.map((o) => o.trim());
-    if (cleanNames.every((n) => n === '')) {
+    if (!date) {
+      setError('Please select a date.');
+      return;
+    }
+
+    const cleanOpponents = opponents.map((o) => o.trim()).filter(Boolean);
+    if (cleanOpponents.length === 0) {
       setError('Please add at least one opponent name.');
       return;
     }
+
     if (
       sets.some(
         (s) =>
@@ -100,9 +106,24 @@ function MatchForm({ initial, onDone }: { initial?: Match; onDone: () => void })
           Number.isNaN(Number.parseInt(s.them, 10)),
       )
     ) {
-      setError('Enter points for every set.');
+      setError('Please enter points for every set.');
       return;
     }
+
+    for (let i = 0; i < parsed.length; i++) {
+      if (parsed[i].me === parsed[i].them) {
+        setError(
+          `Set ${i + 1} cannot end in a tie (${parsed[i].me}–${parsed[i].them}). In badminton, sets must have a winner.`,
+        );
+        return;
+      }
+    }
+
+    if (wonSets === lostSets) {
+      setError('Match sets are level. Please add a deciding set or adjust scores to determine a match winner.');
+      return;
+    }
+
     setError(null);
     setSaving(true);
     const now = new Date().toISOString();
@@ -110,7 +131,7 @@ function MatchForm({ initial, onDone }: { initial?: Match; onDone: () => void })
       id: initial?.id ?? newId(),
       date,
       format,
-      opponents: cleanNames,
+      opponents: cleanOpponents.slice(0, format === 'doubles' ? 2 : 1),
       partner: format === 'doubles' ? partner.trim() : '',
       sets: parsed,
       notes: notes.trim(),
@@ -209,14 +230,19 @@ function MatchForm({ initial, onDone }: { initial?: Match; onDone: () => void })
                 aria-label={`Set ${i + 1} opponent points`}
                 placeholder="their pts"
               />
-              <button
-                type="button"
-                className="icon-btn"
-                onClick={() => removeSet(i)}
-                title="Remove set"
-              >
-                ✕
-              </button>
+              {sets.length > 1 ? (
+                <button
+                  type="button"
+                  className="icon-btn"
+                  onClick={() => removeSet(i)}
+                  title="Remove set"
+                  aria-label={`Remove set ${i + 1}`}
+                >
+                  ✕
+                </button>
+              ) : (
+                <div style={{ width: 36 }} />
+              )}
             </div>
           ))}
           {sets.length < 3 && (

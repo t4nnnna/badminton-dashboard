@@ -14,6 +14,16 @@ export default function History() {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
 
+  const hasFilters = Boolean(q || fmt !== 'all' || res !== 'all' || from || to);
+
+  const resetFilters = () => {
+    setQ('');
+    setFmt('all');
+    setRes('all');
+    setFrom('');
+    setTo('');
+  };
+
   const filtered = useMemo(
     () =>
       matches.filter((m) => {
@@ -38,6 +48,16 @@ export default function History() {
           <h1 className="page-title">Matches</h1>
           <p className="page-sub">
             {filtered.length} of {matches.length} matches
+            {hasFilters && (
+              <button
+                type="button"
+                onClick={resetFilters}
+                className="btn btn-ghost btn-sm"
+                style={{ marginLeft: 12, padding: '2px 8px', fontSize: 12 }}
+              >
+                Reset filters
+              </button>
+            )}
           </p>
         </div>
         <Link to="/new" className="btn btn-primary">

@@ -2,11 +2,13 @@ import { useRef, useState } from 'react';
 import { useMatches } from '../hooks/useMatches';
 import { exportJSON, parseImport } from '../lib/db';
 import { todayISO } from '../lib/format';
+import ConfirmModal from '../components/ConfirmModal';
 
 export default function Settings() {
   const { matches, importAll, clear } = useMatches();
   const fileRef = useRef<HTMLInputElement>(null);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  const [showClearModal, setShowClearModal] = useState(false);
 
   function doExport() {
     const blob = new Blob([exportJSON(matches)], { type: 'application/json' });
@@ -32,13 +34,10 @@ export default function Settings() {
     }
   }
 
-  function doClear() {
-    if (confirm('Delete ALL matches? This cannot be undone.')) {
-      if (confirm('Really delete everything? Consider exporting a backup first.')) {
-        void clear();
-        setMsg({ ok: true, text: 'All matches deleted.' });
-      }
-    }
+  function handleConfirmClear() {
+    void clear();
+    setShowClearModal(false);
+    setMsg({ ok: true, text: 'All matches deleted.' });
   }
 
   return (
@@ -78,11 +77,21 @@ export default function Settings() {
       <div className="card">
         <h2>Danger zone</h2>
         <div className="actions" style={{ marginTop: 0 }}>
-          <button className="btn btn-danger" onClick={doClear}>
+          <button className="btn btn-danger" onClick={() => setShowClearModal(true)}>
             Delete all matches
           </button>
         </div>
       </div>
+
+      <ConfirmModal
+        isOpen={showClearModal}
+        title="Delete all matches?"
+        message="This will permanently delete all match history from this browser. This action cannot be undone. Please ensure you have exported a JSON backup first if you want to keep your data."
+        confirmLabel="Yes, delete everything"
+        isDanger
+        onConfirm={handleConfirmClear}
+        onCancel={() => setShowClearModal(false)}
+      />
     </>
   );
 }

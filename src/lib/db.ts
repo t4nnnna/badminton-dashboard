@@ -28,16 +28,35 @@ function getDB(): Promise<IDBPDatabase<DBSchema>> {
   return dbPromise;
 }
 
+// BroadcastChannel for seamless cross-tab synchronization
+const syncChannel =
+  typeof window !== 'undefined' && typeof BroadcastChannel !== 'undefined'
+    ? new BroadcastChannel('badminton_db_sync')
+    : null;
+
+export function notifyChange(): void {
+  syncChannel?.postMessage({ type: 'sync', timestamp: Date.now() });
+}
+
+export function onDBSync(callback: () => void): () => void {
+  if (!syncChannel) return () => {};
+  const handler = () => callback();
+  syncChannel.addEventListener('message', handler);
+  return () => syncChannel.removeEventListener('message', handler);
+}
+
 /** All matches, newest first (date desc, then createdAt desc). */
 export async function listMatches(): Promise<Match[]> {
   const db = await getDB();
   const all = await db.getAll(STORE);
-  return all.sort((a, b) =>
-    a.date === b.date ? (a.createdAt < b.createdAt ? 1 : -1) : a.date < b.date ? 1 : -1,
-  );
+  return all.sort((a, b) => {
+    if (a.date !== b.date) return b.date.localeCompare(a.date);
+    return (b.createdAt || '').localeCompare(a.createdAt || '');
+  });
 }
 
 export async function getMatch(id: string): Promise<Match | undefined> {
+  if (!id) return undefined;
   const db = await getDB();
   return (await db.get(STORE, id)) as Match | undefined;
 }
@@ -45,16 +64,29 @@ export async function getMatch(id: string): Promise<Match | undefined> {
 export async function putMatch(m: Match): Promise<void> {
   const db = await getDB();
   await db.put(STORE, m);
+  notifyChange();
+}
+
+/** Fast batch insert/update using a single IndexedDB transaction. */
+export async function putMatches(matches: Match[]): Promise<void> {
+  if (matches.length === 0) return;
+  const db = await getDB();
+  const tx = db.transaction(STORE, 'readwrite');
+  await Promise.all(matches.map((m) => tx.store.put(m)));
+  await tx.done;
+  notifyChange();
 }
 
 export async function removeMatch(id: string): Promise<void> {
   const db = await getDB();
   await db.delete(STORE, id);
+  notifyChange();
 }
 
 export async function clearAll(): Promise<void> {
   const db = await getDB();
   await db.clear(STORE);
+  notifyChange();
 }
 
 export function exportJSON(matches: Match[]): string {
@@ -83,16 +115,19 @@ export function parseImport(text: string): Match[] {
     }
     const now = new Date().toISOString();
     const legacyOpp = (m as { opponent?: string }).opponent;
+    const rawOpponents = Array.isArray(m.opponents)
+      ? m.opponents.map((o) => (typeof o === 'string' ? o.trim() : '')).filter(Boolean).slice(0, 2)
+      : typeof legacyOpp === 'string' && legacyOpp.trim()
+        ? [legacyOpp.trim()]
+        : [];
+    const fmt = m.format === 'doubles' ? 'doubles' : 'singles';
+
     return {
       id: m.id,
       date: m.date,
-      format: m.format === 'doubles' ? 'doubles' : 'singles',
-      opponents: Array.isArray(m.opponents)
-        ? m.opponents.map((o) => (typeof o === 'string' ? o : '')).slice(0, 2)
-        : typeof legacyOpp === 'string' && legacyOpp
-          ? [legacyOpp]
-          : [],
-      partner: typeof m.partner === 'string' ? m.partner : '',
+      format: fmt,
+      opponents: rawOpponents,
+      partner: fmt === 'doubles' && typeof m.partner === 'string' ? m.partner.trim() : '',
       sets: m.sets.map((s) => ({
         me: Math.max(0, Number((s as { me?: number })?.me) || 0),
         them: Math.max(0, Number((s as { them?: number })?.them) || 0),

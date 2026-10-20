@@ -514,6 +514,84 @@ textarea {
   margin-top: 12px;
 }
 
+/* ---------- responsive table wrapper ---------- */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ---------- modal ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+  animation: fadeIn 0.15s ease-out;
+}
+.modal-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  animation: scaleIn 0.15s ease-out;
+}
+.modal-box h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+.modal-box p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ---------- loading spinner ---------- */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  gap: 12px;
+}
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 860px) {
   .cards-grid {
@@ -530,5 +608,35 @@ textarea {
   }
   .topbar-inner {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding: 16px 14px 48px;
+  }
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .stat .value {
+    font-size: 22px;
+  }
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  .topbar-inner {
+    padding: 8px 14px;
+    gap: 8px;
+  }
+  .nav {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .nav a {
+    padding: 6px 9px;
+    font-size: 13px;
+    white-space: nowrap;
   }
 }

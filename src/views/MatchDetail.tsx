@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useMatches } from '../hooks/useMatches';
 import { fmtDate, matchScore, opponentNames } from '../lib/format';
 import { matchWon, pointsAgainst, pointsFor } from '../lib/stats';
+import ConfirmModal from '../components/ConfirmModal';
 
 export default function MatchDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { matches, loading, remove } = useMatches();
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const m = matches.find((x) => x.id === id);
 
   if (loading) return <p className="muted">Loading…</p>;
@@ -41,8 +44,8 @@ export default function MatchDetail() {
                 <strong>{opponentNames(m.opponents)}</strong>
               </span>
               <span>{fmtDate(m.date)}</span>
-              <span>{m.format}</span>
-              {m.partner && <span>with {m.partner}</span>}
+              <span style={{ textTransform: 'capitalize' }}>{m.format}</span>
+              {m.format === 'doubles' && m.partner && <span>with {m.partner}</span>}
               <span>
                 {pointsFor(m)} pts for · {pointsAgainst(m)} against
               </span>
@@ -51,24 +54,26 @@ export default function MatchDetail() {
           <span className={`badge ${won ? 'w' : 'l'}`}>{won ? 'WIN' : 'LOSS'}</span>
         </div>
 
-        <table className="sets-table">
-          <thead>
-            <tr>
-              <th>Set</th>
-              <th>You</th>
-              <th>Opponent</th>
-            </tr>
-          </thead>
-          <tbody>
-            {m.sets.map((s, i) => (
-              <tr key={i}>
-                <td className="muted">Set {i + 1}</td>
-                <td className={s.me > s.them ? 'win' : s.me < s.them ? 'loss' : ''}>{s.me}</td>
-                <td className={s.them > s.me ? 'win' : s.them < s.me ? 'loss' : ''}>{s.them}</td>
+        <div className="table-responsive">
+          <table className="sets-table">
+            <thead>
+              <tr>
+                <th>Set</th>
+                <th>You</th>
+                <th>Opponent</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {m.sets.map((s, i) => (
+                <tr key={i}>
+                  <td className="muted">Set {i + 1}</td>
+                  <td className={s.me > s.them ? 'win' : s.me < s.them ? 'loss' : ''}>{s.me}</td>
+                  <td className={s.them > s.me ? 'win' : s.them < s.me ? 'loss' : ''}>{s.them}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         <p className="muted small" style={{ marginTop: 8 }}>
           Set winner highlighted in green.
         </p>
@@ -80,17 +85,26 @@ export default function MatchDetail() {
             Edit
           </Link>
           <button
+            type="button"
             className="btn btn-danger"
-            onClick={() => {
-              if (confirm(`Delete match vs ${opponentNames(m.opponents)}?`)) {
-                void remove(m.id).then(() => navigate('/matches'));
-              }
-            }}
+            onClick={() => setShowDeleteModal(true)}
           >
             Delete
           </button>
         </div>
       </div>
+
+      <ConfirmModal
+        isOpen={showDeleteModal}
+        title="Delete match"
+        message={`Are you sure you want to delete this match vs ${opponentNames(m.opponents)} (${fmtDate(m.date)})? This action cannot be undone.`}
+        confirmLabel="Delete"
+        isDanger
+        onConfirm={() => {
+          void remove(m.id).then(() => navigate('/matches'));
+        }}
+        onCancel={() => setShowDeleteModal(false)}
+      />
     </>
   );
 }

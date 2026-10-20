@@ -3,6 +3,18 @@ import type { Summary } from '../lib/stats';
 const pct = (n: number) => `${Math.round(n * 100)}%`;
 
 export default function SummaryCards({ s }: { s: Summary }) {
+  const streakText = s.total
+    ? `${s.streak.n} ${
+        s.streak.type === 'W'
+          ? s.streak.n === 1
+            ? 'win'
+            : 'wins'
+          : s.streak.n === 1
+            ? 'loss'
+            : 'losses'
+      }`
+    : '—';
+
   return (
     <div className="cards-grid">
       <div className="stat">
@@ -20,7 +32,7 @@ export default function SummaryCards({ s }: { s: Summary }) {
       <div className="stat">
         <div className="label">Current streak</div>
         <div className={`value ${s.total ? (s.streak.type === 'W' ? 'win' : 'lose') : ''}`}>
-          {s.total ? `${s.streak.n} ${s.streak.type === 'W' ? 'win' : 'loss'}${s.streak.n > 1 ? 'es' : ''}` : '—'}
+          {streakText}
         </div>
         <div className="sub">consecutive</div>
       </div>

@@ -32,59 +32,63 @@ export default function Partners() {
         <>
           <div className="card">
             <h2>By partner</h2>
-            <table className="matches">
-              <thead>
-                <tr>
-                  <th>Partner</th>
-                  <th>M</th>
-                  <th>W</th>
-                  <th>L</th>
-                  <th>Win %</th>
-                  <th>Sets (W–L)</th>
-                  <th>Pts (For–Against)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {stats.map((p) => (
-                  <tr key={p.partner}>
-                    <td><strong>{p.partner}</strong></td>
-                    <td>{p.matches}</td>
-                    <td>{p.wins}</td>
-                    <td>{p.losses}</td>
-                    <td style={{ color: wrColor(p.winRate), fontWeight: 600 }}>{pct(p.winRate)}</td>
-                    <td>{p.setsWon}–{p.setsLost}</td>
-                    <td>{p.pointsFor}–{p.pointsAgainst}</td>
+            <div className="table-responsive">
+              <table className="matches">
+                <thead>
+                  <tr>
+                    <th>Partner</th>
+                    <th>M</th>
+                    <th>W</th>
+                    <th>L</th>
+                    <th>Win %</th>
+                    <th>Sets (W–L)</th>
+                    <th>Pts (For–Against)</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {stats.map((p) => (
+                    <tr key={p.partner}>
+                      <td><strong>{p.partner}</strong></td>
+                      <td>{p.matches}</td>
+                      <td>{p.wins}</td>
+                      <td>{p.losses}</td>
+                      <td style={{ color: wrColor(p.winRate), fontWeight: 600 }}>{pct(p.winRate)}</td>
+                      <td>{p.setsWon}–{p.setsLost}</td>
+                      <td>{p.pointsFor}–{p.pointsAgainst}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           {stats.map((p) => (
             <div className="card" key={p.partner}>
               <h2>With {p.partner}</h2>
-              <table className="matches">
-                <thead>
-                  <tr>
-                    <th>vs Opponents</th>
-                    <th>M</th>
-                    <th>W</th>
-                    <th>L</th>
-                    <th>Win %</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {p.opponents.map((o) => (
-                    <tr key={o.opponent}>
-                      <td><strong>{o.opponent}</strong></td>
-                      <td>{o.matches}</td>
-                      <td>{o.wins}</td>
-                      <td>{o.losses}</td>
-                      <td style={{ color: wrColor(o.winRate), fontWeight: 600 }}>{pct(o.winRate)}</td>
+              <div className="table-responsive">
+                <table className="matches">
+                  <thead>
+                    <tr>
+                      <th>vs Opponents</th>
+                      <th>M</th>
+                      <th>W</th>
+                      <th>L</th>
+                      <th>Win %</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {p.opponents.map((o) => (
+                      <tr key={o.opponent}>
+                        <td><strong>{o.opponent}</strong></td>
+                        <td>{o.matches}</td>
+                        <td>{o.wins}</td>
+                        <td>{o.losses}</td>
+                        <td style={{ color: wrColor(o.winRate), fontWeight: 600 }}>{pct(o.winRate)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           ))}
         </>

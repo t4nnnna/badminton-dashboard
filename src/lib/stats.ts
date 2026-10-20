@@ -57,11 +57,14 @@ export function summarize(matches: Match[]): Summary {
 
   const totalPointsFor = matches.reduce((a, m) => a + pointsFor(m), 0);
   const totalPointsAgainst = matches.reduce((a, m) => a + pointsAgainst(m), 0);
-  const setCount = matches.reduce((a, m) => a + m.sets.length, 0);
+  const setCount = matches.reduce((a, m) => a + (m.sets?.length || 0), 0);
   const now = new Date();
+  const curYear = now.getFullYear();
+  const curMonth = now.getMonth() + 1;
   const thisMonth = matches.filter((m) => {
-    const d = new Date(`${m.date}T00:00:00`);
-    return d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth();
+    if (!m.date) return false;
+    const [y, mo] = m.date.split('-').map(Number);
+    return y === curYear && mo === curMonth;
   }).length;
 
   return {
@@ -151,6 +154,7 @@ export function partnerStats(matches: Match[]): PartnerStat[] {
   }
   const byPartner = new Map<string, Acc>();
   for (const m of matches) {
+    if (m.format !== 'doubles') continue;
     const pName = (m.partner ?? '').trim();
     if (!pName) continue;
     const pKey = pName.toLowerCase();

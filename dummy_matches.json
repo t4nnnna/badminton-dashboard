@@ -1,0 +1,2352 @@
+﻿{
+    "app":  "badminton-dashboard",
+    "exportedAt":  "2026-10-20T21:02:50.408Z",
+    "version":  1,
+    "matches":  [
+                    {
+                        "opponents":  [
+                                          "Marcus Lee"
+                                      ],
+                        "id":  "b528c4af-e337-422f-96e1-6c8695fc6b5a",
+                        "partner":  "",
+                        "createdAt":  "2024-01-08T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-01-08",
+                        "updatedAt":  "2024-01-08T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     },
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Priya Patel"
+                                      ],
+                        "id":  "5bdd7593-ef1c-428b-93d8-f680df2e2a14",
+                        "partner":  "",
+                        "createdAt":  "2024-01-12T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-01-12",
+                        "updatedAt":  "2024-01-12T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  13
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Chris Wong",
+                                          "Jordan Smith"
+                                      ],
+                        "id":  "db525d33-1a3d-4aa5-84d9-d60b377f7bad",
+                        "partner":  "Ben Adams",
+                        "createdAt":  "2024-01-16T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-01-16",
+                        "updatedAt":  "2024-01-16T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Jamie Rivera",
+                                          "Jordan Smith"
+                                      ],
+                        "id":  "08bc32c8-ce76-45c0-bb5f-35cf88039868",
+                        "partner":  "Ben Adams",
+                        "createdAt":  "2024-01-20T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-01-20",
+                        "updatedAt":  "2024-01-20T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  18,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     }
+                                 ],
+                        "notes":  "Need to work on backhand"
+                    },
+                    {
+                        "opponents":  [
+                                          "Jordan Smith"
+                                      ],
+                        "id":  "4bc8418d-86f7-46e7-b81e-222f3995bea1",
+                        "partner":  "",
+                        "createdAt":  "2024-01-23T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-01-23",
+                        "updatedAt":  "2024-01-23T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     },
+                                     {
+                                         "me":  11,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     }
+                                 ],
+                        "notes":  "Good warm up match"
+                    },
+                    {
+                        "opponents":  [
+                                          "Alex Chen"
+                                      ],
+                        "id":  "85b523ce-5dce-4109-9f8e-116a62395b0a",
+                        "partner":  "",
+                        "createdAt":  "2024-01-26T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-01-26",
+                        "updatedAt":  "2024-01-26T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  10,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     }
+                                 ],
+                        "notes":  "Missed too many smashes"
+                    },
+                    {
+                        "opponents":  [
+                                          "Chris Wong"
+                                      ],
+                        "id":  "c3bf4205-e304-42cd-a66c-b1c2f9d31b7e",
+                        "partner":  "",
+                        "createdAt":  "2024-01-27T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-01-27",
+                        "updatedAt":  "2024-01-27T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  14
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Jamie Rivera"
+                                      ],
+                        "id":  "a4f7fb2f-00f8-4c67-8e43-b0be188f4d3c",
+                        "partner":  "",
+                        "createdAt":  "2024-01-31T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-01-31",
+                        "updatedAt":  "2024-01-31T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  10
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Quinn Santos"
+                                      ],
+                        "id":  "89edc772-c640-4725-adb1-9fdfae4851d2",
+                        "partner":  "",
+                        "createdAt":  "2024-02-03T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-02-03",
+                        "updatedAt":  "2024-02-03T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  13
+                                     },
+                                     {
+                                         "me":  10,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Tight third set!"
+                    },
+                    {
+                        "opponents":  [
+                                          "Casey Lin"
+                                      ],
+                        "id":  "a0c7b405-018f-4c59-ab62-4c8d06f4f503",
+                        "partner":  "",
+                        "createdAt":  "2024-02-04T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-02-04",
+                        "updatedAt":  "2024-02-04T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     },
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Very competitive match"
+                    },
+                    {
+                        "opponents":  [
+                                          "Sasha Kovac",
+                                          "Sam Nguyen"
+                                      ],
+                        "id":  "69410821-a650-4d5b-bdfb-9b7f2db1795e",
+                        "partner":  "Ella Brooks",
+                        "createdAt":  "2024-02-05T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-02-05",
+                        "updatedAt":  "2024-02-05T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  14
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  11
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Sasha Kovac",
+                                          "Casey Lin"
+                                      ],
+                        "id":  "58f5fb1a-5a07-45aa-ab73-56045f0d0bac",
+                        "partner":  "Zack Turner",
+                        "createdAt":  "2024-02-08T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-02-08",
+                        "updatedAt":  "2024-02-08T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     },
+                                     {
+                                         "me":  16,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Alex Chen",
+                                          "Priya Patel"
+                                      ],
+                        "id":  "d34bdee9-7493-4eda-a81e-133f9d24bdb3",
+                        "partner":  "Raj Mehta",
+                        "createdAt":  "2024-02-10T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-02-10",
+                        "updatedAt":  "2024-02-10T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  10
+                                     },
+                                     {
+                                         "me":  11,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Casey Lin"
+                                      ],
+                        "id":  "61e56355-c428-44b3-9f7e-a0493b7dbaae",
+                        "partner":  "",
+                        "createdAt":  "2024-02-12T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-02-12",
+                        "updatedAt":  "2024-02-12T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  10
+                                     },
+                                     {
+                                         "me":  18,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Sam Nguyen",
+                                          "Morgan Kim"
+                                      ],
+                        "id":  "efccde96-c194-4301-969f-62f8289df505",
+                        "partner":  "Zack Turner",
+                        "createdAt":  "2024-02-16T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-02-16",
+                        "updatedAt":  "2024-02-16T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  10
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Casey Lin",
+                                          "Jordan Smith"
+                                      ],
+                        "id":  "8271a306-ac12-4487-a52d-ac8aab08005c",
+                        "partner":  "Tom Weiss",
+                        "createdAt":  "2024-02-20T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-02-20",
+                        "updatedAt":  "2024-02-20T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     },
+                                     {
+                                         "me":  17,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     }
+                                 ],
+                        "notes":  "Tight third set!"
+                    },
+                    {
+                        "opponents":  [
+                                          "Chris Wong"
+                                      ],
+                        "id":  "0ed86741-46d2-47b8-9707-2191bcef59be",
+                        "partner":  "",
+                        "createdAt":  "2024-02-24T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-02-24",
+                        "updatedAt":  "2024-02-24T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     },
+                                     {
+                                         "me":  18,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Jordan Smith"
+                                      ],
+                        "id":  "a4f32139-3216-4c1c-a6f1-957dc8baaadd",
+                        "partner":  "",
+                        "createdAt":  "2024-02-25T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-02-25",
+                        "updatedAt":  "2024-02-25T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  14,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  14,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Quinn Santos",
+                                          "Jordan Smith"
+                                      ],
+                        "id":  "f94d52da-750c-449c-8e08-a9b48559f8e0",
+                        "partner":  "Fiona Clarke",
+                        "createdAt":  "2024-02-29T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-02-29",
+                        "updatedAt":  "2024-02-29T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  17,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Good warm up match"
+                    },
+                    {
+                        "opponents":  [
+                                          "Avery Mueller",
+                                          "Priya Patel"
+                                      ],
+                        "id":  "85b4dd19-0a46-4a93-ade9-3f119bbc3873",
+                        "partner":  "Tom Weiss",
+                        "createdAt":  "2024-03-02T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-03-02",
+                        "updatedAt":  "2024-03-02T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     }
+                                 ],
+                        "notes":  "Missed too many smashes"
+                    },
+                    {
+                        "opponents":  [
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "be1f5159-f8ca-4fbc-b4bf-5014477712e5",
+                        "partner":  "",
+                        "createdAt":  "2024-03-03T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-03-03",
+                        "updatedAt":  "2024-03-03T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  14,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Lucky win in the third"
+                    },
+                    {
+                        "opponents":  [
+                                          "Morgan Kim"
+                                      ],
+                        "id":  "479ffe56-4e85-4b3e-b119-5b358f05963e",
+                        "partner":  "",
+                        "createdAt":  "2024-03-07T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-03-07",
+                        "updatedAt":  "2024-03-07T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  11,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  13,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Played really well today"
+                    },
+                    {
+                        "opponents":  [
+                                          "Jamie Rivera"
+                                      ],
+                        "id":  "71b9d36f-7ec7-4bdc-b2f1-aa38d62592dd",
+                        "partner":  "",
+                        "createdAt":  "2024-03-10T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-03-10",
+                        "updatedAt":  "2024-03-10T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  11,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  10,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Jordan Smith"
+                                      ],
+                        "id":  "742e9d1c-59a2-4b8d-b8ca-eb055d56efec",
+                        "partner":  "",
+                        "createdAt":  "2024-03-11T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-03-11",
+                        "updatedAt":  "2024-03-11T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  13
+                                     }
+                                 ],
+                        "notes":  "Bad day, rusty footwork"
+                    },
+                    {
+                        "opponents":  [
+                                          "Sasha Kovac",
+                                          "Chris Wong"
+                                      ],
+                        "id":  "7a6502a6-334b-4c62-bd4d-65a69ee68105",
+                        "partner":  "Tom Weiss",
+                        "createdAt":  "2024-03-15T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-03-15",
+                        "updatedAt":  "2024-03-15T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     },
+                                     {
+                                         "me":  16,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Tight third set!"
+                    },
+                    {
+                        "opponents":  [
+                                          "Jamie Rivera"
+                                      ],
+                        "id":  "4436d564-76b0-44d7-9e46-faa455fc2ef1",
+                        "partner":  "",
+                        "createdAt":  "2024-03-19T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-03-19",
+                        "updatedAt":  "2024-03-19T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     },
+                                     {
+                                         "me":  18,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Alex Chen",
+                                          "Quinn Santos"
+                                      ],
+                        "id":  "a27895a5-4b76-4ff4-b6ea-9a73b8135508",
+                        "partner":  "Omar Hassan",
+                        "createdAt":  "2024-03-21T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-03-21",
+                        "updatedAt":  "2024-03-21T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     }
+                                 ],
+                        "notes":  "Very competitive match"
+                    },
+                    {
+                        "opponents":  [
+                                          "Riley Okafor"
+                                      ],
+                        "id":  "19eb795f-1ab5-45ee-aedb-b211949fe338",
+                        "partner":  "",
+                        "createdAt":  "2024-03-22T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-03-22",
+                        "updatedAt":  "2024-03-22T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  13
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  16
+                                     }
+                                 ],
+                        "notes":  "Missed too many smashes"
+                    },
+                    {
+                        "opponents":  [
+                                          "Riley Okafor"
+                                      ],
+                        "id":  "d075b23c-c0ed-4c11-9d09-262354021b6d",
+                        "partner":  "",
+                        "createdAt":  "2024-03-25T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-03-25",
+                        "updatedAt":  "2024-03-25T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  10
+                                     }
+                                 ],
+                        "notes":  "Net shots were on point"
+                    },
+                    {
+                        "opponents":  [
+                                          "Jordan Smith"
+                                      ],
+                        "id":  "4f3d0937-1449-42d9-9546-352df771a36b",
+                        "partner":  "",
+                        "createdAt":  "2024-03-27T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-03-27",
+                        "updatedAt":  "2024-03-27T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  16
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Avery Mueller",
+                                          "Chris Wong"
+                                      ],
+                        "id":  "13397799-cc07-4206-9bf4-ab7831db8b7c",
+                        "partner":  "Zack Turner",
+                        "createdAt":  "2024-03-30T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-03-30",
+                        "updatedAt":  "2024-03-30T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  11
+                                     },
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Net shots were on point"
+                    },
+                    {
+                        "opponents":  [
+                                          "Riley Okafor"
+                                      ],
+                        "id":  "96a79a62-5f9e-4198-9b40-52d0d7f1cf78",
+                        "partner":  "",
+                        "createdAt":  "2024-04-02T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-04-02",
+                        "updatedAt":  "2024-04-02T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  12,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     }
+                                 ],
+                        "notes":  "Need to work on backhand"
+                    },
+                    {
+                        "opponents":  [
+                                          "Morgan Kim"
+                                      ],
+                        "id":  "86912bec-4461-4f39-94a5-a61720740055",
+                        "partner":  "",
+                        "createdAt":  "2024-04-05T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-04-05",
+                        "updatedAt":  "2024-04-05T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     },
+                                     {
+                                         "me":  18,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Jordan Smith"
+                                      ],
+                        "id":  "14047b98-d576-49e6-a293-e9e7f7a04c31",
+                        "partner":  "",
+                        "createdAt":  "2024-04-07T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-04-07",
+                        "updatedAt":  "2024-04-07T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  10
+                                     },
+                                     {
+                                         "me":  14,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Good warm up match"
+                    },
+                    {
+                        "opponents":  [
+                                          "Taylor Park",
+                                          "Marcus Lee"
+                                      ],
+                        "id":  "f2faf3a9-0a59-4666-8d28-93143760f8e4",
+                        "partner":  "Lily Tan",
+                        "createdAt":  "2024-04-09T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-04-09",
+                        "updatedAt":  "2024-04-09T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     },
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Riley Okafor",
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "e5ecfa75-7c51-46d3-855b-a3e50c4d4b89",
+                        "partner":  "Nina Petrov",
+                        "createdAt":  "2024-04-13T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-04-13",
+                        "updatedAt":  "2024-04-13T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  11
+                                     },
+                                     {
+                                         "me":  16,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Lucky win in the third"
+                    },
+                    {
+                        "opponents":  [
+                                          "Chris Wong"
+                                      ],
+                        "id":  "db7dc389-a5d2-4fd2-b380-c062300e7b5c",
+                        "partner":  "",
+                        "createdAt":  "2024-04-16T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-04-16",
+                        "updatedAt":  "2024-04-16T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  11
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  16
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     }
+                                 ],
+                        "notes":  "Lucky win in the third"
+                    },
+                    {
+                        "opponents":  [
+                                          "Chris Wong",
+                                          "Morgan Kim"
+                                      ],
+                        "id":  "65b98201-b625-4b8e-b6ad-fdcfafced976",
+                        "partner":  "Lily Tan",
+                        "createdAt":  "2024-04-20T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-04-20",
+                        "updatedAt":  "2024-04-20T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  10
+                                     }
+                                 ],
+                        "notes":  "Missed too many smashes"
+                    },
+                    {
+                        "opponents":  [
+                                          "Casey Lin",
+                                          "Jamie Rivera"
+                                      ],
+                        "id":  "4f055a04-daa0-492b-9ff8-1424087dc90d",
+                        "partner":  "Ella Brooks",
+                        "createdAt":  "2024-04-21T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-04-21",
+                        "updatedAt":  "2024-04-21T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  18,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  14
+                                     }
+                                 ],
+                        "notes":  "Need to work on backhand"
+                    },
+                    {
+                        "opponents":  [
+                                          "Sasha Kovac",
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "638b7e84-5317-4450-af6b-c48bb05a0224",
+                        "partner":  "Zack Turner",
+                        "createdAt":  "2024-04-25T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-04-25",
+                        "updatedAt":  "2024-04-25T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  11,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Need to work on backhand"
+                    },
+                    {
+                        "opponents":  [
+                                          "Quinn Santos"
+                                      ],
+                        "id":  "d98985b0-7cc1-4e33-a13a-55a6f798ac6c",
+                        "partner":  "",
+                        "createdAt":  "2024-04-29T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-04-29",
+                        "updatedAt":  "2024-04-29T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     },
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "0bf2447a-97cc-4540-a862-9b0d1180dbe7",
+                        "partner":  "",
+                        "createdAt":  "2024-05-03T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-05-03",
+                        "updatedAt":  "2024-05-03T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     }
+                                 ],
+                        "notes":  "Played really well today"
+                    },
+                    {
+                        "opponents":  [
+                                          "Morgan Kim"
+                                      ],
+                        "id":  "431fed96-e77e-4dd4-a07d-c9f7ee0febe8",
+                        "partner":  "",
+                        "createdAt":  "2024-05-07T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-05-07",
+                        "updatedAt":  "2024-05-07T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  11
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Chris Wong"
+                                      ],
+                        "id":  "08d320f4-9468-4750-ab48-98dbb5fc8304",
+                        "partner":  "",
+                        "createdAt":  "2024-05-08T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-05-08",
+                        "updatedAt":  "2024-05-08T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  17,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     }
+                                 ],
+                        "notes":  "Played really well today"
+                    },
+                    {
+                        "opponents":  [
+                                          "Alex Chen",
+                                          "Sam Nguyen"
+                                      ],
+                        "id":  "c3e10536-10b5-4805-bf9c-a02fadb246a4",
+                        "partner":  "Tom Weiss",
+                        "createdAt":  "2024-05-11T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-05-11",
+                        "updatedAt":  "2024-05-11T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     }
+                                 ],
+                        "notes":  "Bad day, rusty footwork"
+                    },
+                    {
+                        "opponents":  [
+                                          "Alex Chen",
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "8da21e06-da27-4a78-a57c-a1898f897caf",
+                        "partner":  "Omar Hassan",
+                        "createdAt":  "2024-05-15T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-05-15",
+                        "updatedAt":  "2024-05-15T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  18,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Taylor Park",
+                                          "Casey Lin"
+                                      ],
+                        "id":  "1b2ce691-48b2-48e7-a26d-f5fd1fb0c8a8",
+                        "partner":  "Omar Hassan",
+                        "createdAt":  "2024-05-18T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-05-18",
+                        "updatedAt":  "2024-05-18T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  13
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  11
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Chris Wong",
+                                          "Jamie Rivera"
+                                      ],
+                        "id":  "5746c8b4-1a8b-4566-bce3-8bebb8a8cb33",
+                        "partner":  "Zack Turner",
+                        "createdAt":  "2024-05-20T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-05-20",
+                        "updatedAt":  "2024-05-20T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  17,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     },
+                                     {
+                                         "me":  13,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Good warm up match"
+                    },
+                    {
+                        "opponents":  [
+                                          "Morgan Kim"
+                                      ],
+                        "id":  "7de3bbd4-7a2c-4796-89cf-0988be4bdf5d",
+                        "partner":  "",
+                        "createdAt":  "2024-05-22T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-05-22",
+                        "updatedAt":  "2024-05-22T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     },
+                                     {
+                                         "me":  14,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Lucky win in the third"
+                    },
+                    {
+                        "opponents":  [
+                                          "Marcus Lee",
+                                          "Jamie Rivera"
+                                      ],
+                        "id":  "a1a756a2-ef89-48bf-a7b0-b01b0809e6e6",
+                        "partner":  "Raj Mehta",
+                        "createdAt":  "2024-05-24T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-05-24",
+                        "updatedAt":  "2024-05-24T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  10,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     }
+                                 ],
+                        "notes":  "Tight third set!"
+                    },
+                    {
+                        "opponents":  [
+                                          "Sasha Kovac"
+                                      ],
+                        "id":  "76d4bc9b-36b8-4025-9b7b-92910768d9cb",
+                        "partner":  "",
+                        "createdAt":  "2024-05-27T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-05-27",
+                        "updatedAt":  "2024-05-27T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  12,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  16
+                                     }
+                                 ],
+                        "notes":  "Good warm up match"
+                    },
+                    {
+                        "opponents":  [
+                                          "Alex Chen"
+                                      ],
+                        "id":  "4710f4a8-3a8d-4780-87d9-dcddb13ce1e2",
+                        "partner":  "",
+                        "createdAt":  "2024-05-28T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-05-28",
+                        "updatedAt":  "2024-05-28T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "860f935c-859b-4fd9-a693-fc87c72469fb",
+                        "partner":  "",
+                        "createdAt":  "2024-05-30T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-05-30",
+                        "updatedAt":  "2024-05-30T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     },
+                                     {
+                                         "me":  18,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  10,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Net shots were on point"
+                    },
+                    {
+                        "opponents":  [
+                                          "Marcus Lee",
+                                          "Sasha Kovac"
+                                      ],
+                        "id":  "8c7d4bdc-4072-49ce-8229-16097be724f8",
+                        "partner":  "Raj Mehta",
+                        "createdAt":  "2024-06-03T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-06-03",
+                        "updatedAt":  "2024-06-03T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  10
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  16
+                                     }
+                                 ],
+                        "notes":  "Missed too many smashes"
+                    },
+                    {
+                        "opponents":  [
+                                          "Jamie Rivera"
+                                      ],
+                        "id":  "09d7d084-4705-4a60-89b2-2b66e98a7d37",
+                        "partner":  "",
+                        "createdAt":  "2024-06-05T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-06-05",
+                        "updatedAt":  "2024-06-05T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  14
+                                     }
+                                 ],
+                        "notes":  "Played really well today"
+                    },
+                    {
+                        "opponents":  [
+                                          "Sam Nguyen",
+                                          "Morgan Kim"
+                                      ],
+                        "id":  "da263d1c-5444-4646-8ca8-74f3a9e28a3a",
+                        "partner":  "Lily Tan",
+                        "createdAt":  "2024-06-06T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-06-06",
+                        "updatedAt":  "2024-06-06T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  14,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  12,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Missed too many smashes"
+                    },
+                    {
+                        "opponents":  [
+                                          "Alex Chen"
+                                      ],
+                        "id":  "d2cbf49c-91e0-4f22-97e3-cc1fb9c5bc39",
+                        "partner":  "",
+                        "createdAt":  "2024-06-09T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-06-09",
+                        "updatedAt":  "2024-06-09T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     },
+                                     {
+                                         "me":  10,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  18,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Taylor Park"
+                                      ],
+                        "id":  "cb5e15bf-3067-4214-a6fd-cedd4e4c5e55",
+                        "partner":  "",
+                        "createdAt":  "2024-06-13T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-06-13",
+                        "updatedAt":  "2024-06-13T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  11
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     }
+                                 ],
+                        "notes":  "Played really well today"
+                    },
+                    {
+                        "opponents":  [
+                                          "Chris Wong"
+                                      ],
+                        "id":  "f4700270-bc6f-4db8-b4f0-a04a4c3ba668",
+                        "partner":  "",
+                        "createdAt":  "2024-06-14T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-06-14",
+                        "updatedAt":  "2024-06-14T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  16
+                                     },
+                                     {
+                                         "me":  10,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     }
+                                 ],
+                        "notes":  "Great partner communication"
+                    },
+                    {
+                        "opponents":  [
+                                          "Alex Chen",
+                                          "Priya Patel"
+                                      ],
+                        "id":  "63bb0009-012b-4ad5-b034-649653272784",
+                        "partner":  "Ben Adams",
+                        "createdAt":  "2024-06-16T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-06-16",
+                        "updatedAt":  "2024-06-16T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     },
+                                     {
+                                         "me":  12,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Great partner communication"
+                    },
+                    {
+                        "opponents":  [
+                                          "Alex Chen",
+                                          "Marcus Lee"
+                                      ],
+                        "id":  "ea10d824-dc88-4e99-928a-fb0fff161b38",
+                        "partner":  "Lily Tan",
+                        "createdAt":  "2024-06-19T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-06-19",
+                        "updatedAt":  "2024-06-19T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  16
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     }
+                                 ],
+                        "notes":  "Very competitive match"
+                    },
+                    {
+                        "opponents":  [
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "1fe352a9-8d7d-41c9-9f13-5cab756bf3c7",
+                        "partner":  "",
+                        "createdAt":  "2024-06-21T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-06-21",
+                        "updatedAt":  "2024-06-21T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     },
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Jordan Smith",
+                                          "Chris Wong"
+                                      ],
+                        "id":  "ceb16e51-8926-41b8-997e-80bbf3e68ddf",
+                        "partner":  "Omar Hassan",
+                        "createdAt":  "2024-06-24T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-06-24",
+                        "updatedAt":  "2024-06-24T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  16,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     }
+                                 ],
+                        "notes":  "Opponent had a strong smash"
+                    },
+                    {
+                        "opponents":  [
+                                          "Jordan Smith",
+                                          "Marcus Lee"
+                                      ],
+                        "id":  "7ddae548-da3b-49ab-9c96-950b50459c71",
+                        "partner":  "Zack Turner",
+                        "createdAt":  "2024-06-27T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-06-27",
+                        "updatedAt":  "2024-06-27T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  13,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Missed too many smashes"
+                    },
+                    {
+                        "opponents":  [
+                                          "Quinn Santos",
+                                          "Taylor Park"
+                                      ],
+                        "id":  "085ebace-96b8-4e4e-baf5-0e75f80190f9",
+                        "partner":  "Ben Adams",
+                        "createdAt":  "2024-06-28T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-06-28",
+                        "updatedAt":  "2024-06-28T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  17,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Marcus Lee"
+                                      ],
+                        "id":  "5dcbe46f-1b51-4961-a434-5f64c79b32fc",
+                        "partner":  "",
+                        "createdAt":  "2024-06-30T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-06-30",
+                        "updatedAt":  "2024-06-30T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Missed too many smashes"
+                    },
+                    {
+                        "opponents":  [
+                                          "Taylor Park"
+                                      ],
+                        "id":  "1f861fb3-cc60-4f01-8500-86edce29849c",
+                        "partner":  "",
+                        "createdAt":  "2024-07-04T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-07-04",
+                        "updatedAt":  "2024-07-04T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     },
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Great partner communication"
+                    },
+                    {
+                        "opponents":  [
+                                          "Alex Chen",
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "7032a52f-7b49-4d0d-879f-fab491f18b41",
+                        "partner":  "Lily Tan",
+                        "createdAt":  "2024-07-08T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-07-08",
+                        "updatedAt":  "2024-07-08T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  14,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  14
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Jordan Smith"
+                                      ],
+                        "id":  "2adcfceb-d0bf-40df-a6b4-362f6820b0b7",
+                        "partner":  "",
+                        "createdAt":  "2024-07-11T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-07-11",
+                        "updatedAt":  "2024-07-11T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  13,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  10
+                                     }
+                                 ],
+                        "notes":  "Great partner communication"
+                    },
+                    {
+                        "opponents":  [
+                                          "Sasha Kovac",
+                                          "Morgan Kim"
+                                      ],
+                        "id":  "4ec1354b-323f-4e57-8c30-5503ea6dc710",
+                        "partner":  "Ella Brooks",
+                        "createdAt":  "2024-07-14T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-07-14",
+                        "updatedAt":  "2024-07-14T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  11,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  13
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Marcus Lee"
+                                      ],
+                        "id":  "8112f156-e1e0-4d54-90f9-04f435be4ec5",
+                        "partner":  "",
+                        "createdAt":  "2024-07-18T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-07-18",
+                        "updatedAt":  "2024-07-18T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  10,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Good warm up match"
+                    },
+                    {
+                        "opponents":  [
+                                          "Quinn Santos"
+                                      ],
+                        "id":  "2640ec48-9556-49b3-8b96-3ad95d8961d9",
+                        "partner":  "",
+                        "createdAt":  "2024-07-20T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-07-20",
+                        "updatedAt":  "2024-07-20T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  11,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Drew Hassan",
+                                          "Casey Lin"
+                                      ],
+                        "id":  "1d3f96ec-8d7d-47d8-b090-f2175f7e5b0e",
+                        "partner":  "Raj Mehta",
+                        "createdAt":  "2024-07-24T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-07-24",
+                        "updatedAt":  "2024-07-24T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     },
+                                     {
+                                         "me":  11,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Good warm up match"
+                    },
+                    {
+                        "opponents":  [
+                                          "Alex Chen"
+                                      ],
+                        "id":  "5dd636c3-d982-45cb-b91d-fc11802f0002",
+                        "partner":  "",
+                        "createdAt":  "2024-07-28T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-07-28",
+                        "updatedAt":  "2024-07-28T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     },
+                                     {
+                                         "me":  11,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Great partner communication"
+                    },
+                    {
+                        "opponents":  [
+                                          "Drew Hassan",
+                                          "Marcus Lee"
+                                      ],
+                        "id":  "fd4cf8f7-5462-474c-9e54-7d27e39b7cf9",
+                        "partner":  "Zack Turner",
+                        "createdAt":  "2024-07-31T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-07-31",
+                        "updatedAt":  "2024-07-31T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  16
+                                     }
+                                 ],
+                        "notes":  "Very competitive match"
+                    },
+                    {
+                        "opponents":  [
+                                          "Jordan Smith",
+                                          "Drew Hassan"
+                                      ],
+                        "id":  "0aa85f8e-0165-4498-87a3-6064e8d12626",
+                        "partner":  "Nina Petrov",
+                        "createdAt":  "2024-08-01T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-08-01",
+                        "updatedAt":  "2024-08-01T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  11
+                                     }
+                                 ],
+                        "notes":  "Opponent had a strong smash"
+                    },
+                    {
+                        "opponents":  [
+                                          "Drew Hassan"
+                                      ],
+                        "id":  "aec316b4-7546-4526-afca-5f12abc21241",
+                        "partner":  "",
+                        "createdAt":  "2024-08-04T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-08-04",
+                        "updatedAt":  "2024-08-04T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  12,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  13
+                                     }
+                                 ],
+                        "notes":  "Missed too many smashes"
+                    },
+                    {
+                        "opponents":  [
+                                          "Chris Wong"
+                                      ],
+                        "id":  "3a6ad4fb-57f3-4170-809a-6a344fdc5acc",
+                        "partner":  "",
+                        "createdAt":  "2024-08-06T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-08-06",
+                        "updatedAt":  "2024-08-06T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  10
+                                     },
+                                     {
+                                         "me":  10,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Need to work on backhand"
+                    },
+                    {
+                        "opponents":  [
+                                          "Sam Nguyen"
+                                      ],
+                        "id":  "2920a7dc-b831-4646-9d43-40e557570ee7",
+                        "partner":  "",
+                        "createdAt":  "2024-08-09T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-08-09",
+                        "updatedAt":  "2024-08-09T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  10
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     }
+                                 ],
+                        "notes":  "Tight third set!"
+                    },
+                    {
+                        "opponents":  [
+                                          "Jordan Smith",
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "f54a0f1c-4e62-44cb-9be9-17fbf61303c4",
+                        "partner":  "Mei Zhang",
+                        "createdAt":  "2024-08-10T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-08-10",
+                        "updatedAt":  "2024-08-10T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  10,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  14
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Riley Okafor"
+                                      ],
+                        "id":  "ff03ec37-8f32-484e-8c05-07d77d71129b",
+                        "partner":  "",
+                        "createdAt":  "2024-08-12T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-08-12",
+                        "updatedAt":  "2024-08-12T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  14
+                                     },
+                                     {
+                                         "me":  14,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Played really well today"
+                    },
+                    {
+                        "opponents":  [
+                                          "Sasha Kovac"
+                                      ],
+                        "id":  "f17de1e5-9525-4cbe-981a-78f12f3d98a0",
+                        "partner":  "",
+                        "createdAt":  "2024-08-16T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-08-16",
+                        "updatedAt":  "2024-08-16T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  16,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  11,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Missed too many smashes"
+                    },
+                    {
+                        "opponents":  [
+                                          "Quinn Santos",
+                                          "Marcus Lee"
+                                      ],
+                        "id":  "302fbcee-eb17-4fe1-a04b-6ef5eb73f39e",
+                        "partner":  "Zack Turner",
+                        "createdAt":  "2024-08-18T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-08-18",
+                        "updatedAt":  "2024-08-18T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  14
+                                     },
+                                     {
+                                         "me":  16,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Casey Lin"
+                                      ],
+                        "id":  "779e1e8b-a85a-4f44-b855-7662013f0d43",
+                        "partner":  "",
+                        "createdAt":  "2024-08-22T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-08-22",
+                        "updatedAt":  "2024-08-22T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     }
+                                 ],
+                        "notes":  "Lucky win in the third"
+                    },
+                    {
+                        "opponents":  [
+                                          "Jamie Rivera",
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "7c5b8d9f-2630-40b8-a384-aedb16ad37a4",
+                        "partner":  "Nina Petrov",
+                        "createdAt":  "2024-08-23T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-08-23",
+                        "updatedAt":  "2024-08-23T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  18
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "9d13d1d0-8164-467b-8ad9-412f8f603ce9",
+                        "partner":  "",
+                        "createdAt":  "2024-08-25T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-08-25",
+                        "updatedAt":  "2024-08-25T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  12,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Missed too many smashes"
+                    },
+                    {
+                        "opponents":  [
+                                          "Morgan Kim"
+                                      ],
+                        "id":  "61be7ea2-0ce8-4d8e-9788-614b1f16fca9",
+                        "partner":  "",
+                        "createdAt":  "2024-08-26T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-08-26",
+                        "updatedAt":  "2024-08-26T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  16
+                                     },
+                                     {
+                                         "me":  12,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Priya Patel",
+                                          "Chris Wong"
+                                      ],
+                        "id":  "d5cd2ac7-3ff1-491d-999e-7e6194cf8ecf",
+                        "partner":  "Ella Brooks",
+                        "createdAt":  "2024-08-29T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-08-29",
+                        "updatedAt":  "2024-08-29T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     },
+                                     {
+                                         "me":  12,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Net shots were on point"
+                    },
+                    {
+                        "opponents":  [
+                                          "Riley Okafor"
+                                      ],
+                        "id":  "6fcc4490-1817-4cdb-b4ab-9c0ffd64b818",
+                        "partner":  "",
+                        "createdAt":  "2024-08-30T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-08-30",
+                        "updatedAt":  "2024-08-30T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  13,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Jordan Smith",
+                                          "Quinn Santos"
+                                      ],
+                        "id":  "d5a70114-e412-4e52-836f-923325b763cb",
+                        "partner":  "Tom Weiss",
+                        "createdAt":  "2024-08-31T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-08-31",
+                        "updatedAt":  "2024-08-31T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  13
+                                     },
+                                     {
+                                         "me":  10,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  13,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Jamie Rivera",
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "015cc8ac-1d5b-4070-a766-9d373f05f913",
+                        "partner":  "Omar Hassan",
+                        "createdAt":  "2024-09-03T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-09-03",
+                        "updatedAt":  "2024-09-03T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  11
+                                     },
+                                     {
+                                         "me":  17,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  14
+                                     }
+                                 ],
+                        "notes":  "Tight third set!"
+                    },
+                    {
+                        "opponents":  [
+                                          "Avery Mueller"
+                                      ],
+                        "id":  "e71ecc40-df99-4848-86fd-6e1f96224b38",
+                        "partner":  "",
+                        "createdAt":  "2024-09-05T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-09-05",
+                        "updatedAt":  "2024-09-05T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  13
+                                     },
+                                     {
+                                         "me":  11,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Lucky win in the third"
+                    },
+                    {
+                        "opponents":  [
+                                          "Chris Wong",
+                                          "Jamie Rivera"
+                                      ],
+                        "id":  "3c4a5599-7e7c-4b17-a35d-e682bb825c1c",
+                        "partner":  "Ella Brooks",
+                        "createdAt":  "2024-09-09T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-09-09",
+                        "updatedAt":  "2024-09-09T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  16,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  13,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  ""
+                    },
+                    {
+                        "opponents":  [
+                                          "Marcus Lee"
+                                      ],
+                        "id":  "af951331-fb2f-4c18-96ff-9a6905cea9c6",
+                        "partner":  "",
+                        "createdAt":  "2024-09-10T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-09-10",
+                        "updatedAt":  "2024-09-10T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  18,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  16,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  12
+                                     }
+                                 ],
+                        "notes":  "Need to work on backhand"
+                    },
+                    {
+                        "opponents":  [
+                                          "Jamie Rivera"
+                                      ],
+                        "id":  "a668a1f1-9647-4e24-b454-2a33a682aafb",
+                        "partner":  "",
+                        "createdAt":  "2024-09-14T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-09-14",
+                        "updatedAt":  "2024-09-14T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  15,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  15
+                                     }
+                                 ],
+                        "notes":  "Net shots were on point"
+                    },
+                    {
+                        "opponents":  [
+                                          "Casey Lin",
+                                          "Riley Okafor"
+                                      ],
+                        "id":  "a8062f08-02fd-49bf-8276-104f1d860242",
+                        "partner":  "Ella Brooks",
+                        "createdAt":  "2024-09-18T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-09-18",
+                        "updatedAt":  "2024-09-18T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  12,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  13
+                                     }
+                                 ],
+                        "notes":  "Good warm up match"
+                    },
+                    {
+                        "opponents":  [
+                                          "Priya Patel",
+                                          "Sam Nguyen"
+                                      ],
+                        "id":  "78994a2f-b2f3-4135-abb3-f94a9c6c7c78",
+                        "partner":  "Ben Adams",
+                        "createdAt":  "2024-09-22T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-09-22",
+                        "updatedAt":  "2024-09-22T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  14,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Opponent had a strong smash"
+                    },
+                    {
+                        "opponents":  [
+                                          "Marcus Lee",
+                                          "Alex Chen"
+                                      ],
+                        "id":  "7ee6f9b3-a4a3-4a8a-8d8c-8d8769ca92e4",
+                        "partner":  "Tom Weiss",
+                        "createdAt":  "2024-09-23T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-09-23",
+                        "updatedAt":  "2024-09-23T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  16
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  17
+                                     }
+                                 ],
+                        "notes":  "Tight third set!"
+                    },
+                    {
+                        "opponents":  [
+                                          "Jamie Rivera",
+                                          "Taylor Park"
+                                      ],
+                        "id":  "b85b127a-45dd-43ab-b63c-4794a2de769f",
+                        "partner":  "Omar Hassan",
+                        "createdAt":  "2024-09-24T00:00:00.000Z",
+                        "format":  "doubles",
+                        "date":  "2024-09-24",
+                        "updatedAt":  "2024-09-24T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  12,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  18,
+                                         "them":  21
+                                     }
+                                 ],
+                        "notes":  "Lucky win in the third"
+                    },
+                    {
+                        "opponents":  [
+                                          "Jordan Smith"
+                                      ],
+                        "id":  "7ea26800-9444-4ac1-a896-ccbbf575794a",
+                        "partner":  "",
+                        "createdAt":  "2024-09-28T00:00:00.000Z",
+                        "format":  "singles",
+                        "date":  "2024-09-28",
+                        "updatedAt":  "2024-09-28T00:00:00.000Z",
+                        "sets":  [
+                                     {
+                                         "me":  19,
+                                         "them":  21
+                                     },
+                                     {
+                                         "me":  21,
+                                         "them":  19
+                                     }
+                                 ],
+                        "notes":  ""
+                    }
+                ]
+}

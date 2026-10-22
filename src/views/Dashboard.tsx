@@ -10,6 +10,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import { Plus, ArrowRight, TrendingUp, Swords, History as HistoryIcon } from 'lucide-react';
 import { useMatches } from '../hooks/useMatches';
 import SummaryCards from '../components/SummaryCards';
 import MatchList from '../components/MatchList';
@@ -41,19 +42,30 @@ export default function Dashboard() {
   const s = useMemo(() => summarize(filteredMatches), [filteredMatches]);
   const series = useMemo(() => pointSeries(filteredMatches), [filteredMatches]);
 
-  if (loading) return <p className="muted">Loading…</p>;
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="spinner" />
+        <p className="muted small">Loading dashboard...</p>
+      </div>
+    );
+  }
 
   if (matches.length === 0) {
     return (
       <>
-        <h1 className="page-title">Dashboard</h1>
+        <div className="page-header">
+          <h1 className="page-title">Dashboard</h1>
+          <p className="page-sub">Your badminton record at a glance.</p>
+        </div>
         <div className="card">
           <div className="empty">
             <div className="big">🏸</div>
             <p>No matches logged yet.</p>
             <p style={{ marginTop: 14 }}>
               <Link to="/new" className="btn btn-primary">
-                Add your first match
+                <Plus size={15} />
+                <span>Add your first match</span>
               </Link>
             </p>
           </div>
@@ -86,7 +98,8 @@ export default function Dashboard() {
             ))}
           </div>
           <Link to="/new" className="btn btn-primary">
-            + Add match
+            <Plus size={15} />
+            <span>Add match</span>
           </Link>
         </div>
       </div>
@@ -103,9 +116,11 @@ export default function Dashboard() {
       ) : (
         <>
           <div className="card">
-            <h2>
-              Recent form <span className="muted small">(last {form.length})</span>
-            </h2>
+            <div className="card-header">
+              <h2 className="card-title">
+                Recent Form <span className="muted small font-normal">(last {form.length} matches)</span>
+              </h2>
+            </div>
             <div className="form-dots">
               {form.map((r, i) => (
                 <span key={i} className={`dot ${r === 'W' ? 'w' : 'l'}`}>
@@ -117,13 +132,20 @@ export default function Dashboard() {
 
           {series.length >= 2 && (
             <div className="card">
-              <h2>Points per match</h2>
-              <ResponsiveContainer width="100%" height={220}>
-                <LineChart data={series} margin={{ top: 5, right: 10, bottom: 0, left: -15 }}>
-                  <CartesianGrid stroke="#2a3342" strokeDasharray="3 3" />
+              <div className="card-header">
+                <div className="card-title-row">
+                  <TrendingUp size={16} className="card-header-icon" />
+                  <h2 className="card-title">Points Per Match</h2>
+                </div>
+                <p className="card-description">Progression of your points vs opponents across matches</p>
+              </div>
+              <ResponsiveContainer width="100%" height={230}>
+                <LineChart data={series} margin={{ top: 10, right: 10, bottom: 0, left: -15 }}>
+                  <CartesianGrid stroke="#27272a" strokeDasharray="3 3" vertical={false} />
                   <XAxis
                     dataKey="date"
-                    tick={{ fill: '#8d97a8', fontSize: 11 }}
+                    stroke="#52525b"
+                    tick={{ fill: '#a1a1aa', fontSize: 11 }}
                     tickFormatter={(d: string) => {
                       try {
                         return format(parseISO(d), 'd/M');
@@ -132,10 +154,17 @@ export default function Dashboard() {
                       }
                     }}
                   />
-                  <YAxis tick={{ fill: '#8d97a8', fontSize: 11 }} allowDecimals={false} />
+                  <YAxis stroke="#52525b" tick={{ fill: '#a1a1aa', fontSize: 11 }} allowDecimals={false} />
                   <Tooltip
-                    contentStyle={{ background: '#1c2330', border: '1px solid #2a3342', borderRadius: 8 }}
-                    labelStyle={{ color: '#e7ecf3' }}
+                    contentStyle={{
+                      background: '#09090b',
+                      border: '1px solid #27272a',
+                      borderRadius: '8px',
+                      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)',
+                      padding: '8px 12px',
+                    }}
+                    labelStyle={{ color: '#fafafa', fontWeight: 600, marginBottom: 4 }}
+                    itemStyle={{ fontSize: 13 }}
                     labelFormatter={(label) => {
                       try {
                         return format(parseISO(String(label)), 'd MMM yyyy');
@@ -145,8 +174,24 @@ export default function Dashboard() {
                     }}
                     formatter={(value, name) => [String(value), name === 'me' ? 'My points' : 'Opponent']}
                   />
-                  <Line type="monotone" dataKey="me" name="me" stroke="#3ecf8e" strokeWidth={2} dot={{ r: 2 }} />
-                  <Line type="monotone" dataKey="them" name="them" stroke="#e5484d" strokeWidth={2} dot={{ r: 2 }} />
+                  <Line
+                    type="monotone"
+                    dataKey="me"
+                    name="me"
+                    stroke="#10b981"
+                    strokeWidth={2}
+                    dot={{ r: 3, fill: '#10b981', strokeWidth: 0 }}
+                    activeDot={{ r: 5 }}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="them"
+                    name="them"
+                    stroke="#ef4444"
+                    strokeWidth={2}
+                    dot={{ r: 3, fill: '#ef4444', strokeWidth: 0 }}
+                    activeDot={{ r: 5 }}
+                  />
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -154,10 +199,14 @@ export default function Dashboard() {
 
           {topRivals.length > 0 && (
             <div className="card">
-              <div className="row-between" style={{ marginBottom: 12 }}>
-                <h2>Top Rivals &amp; Head to Head</h2>
-                <Link to="/h2h" className="small">
-                  All opponents →
+              <div className="card-header row-between" style={{ marginBottom: 12 }}>
+                <div className="card-title-row">
+                  <Swords size={16} className="card-header-icon" />
+                  <h2 className="card-title">Top Rivals &amp; Head-to-Head</h2>
+                </div>
+                <Link to="/h2h" className="link-subtle">
+                  <span>All opponents</span>
+                  <ArrowRight size={13} />
                 </Link>
               </div>
               <div className="table-responsive">
@@ -169,7 +218,7 @@ export default function Dashboard() {
                       <th>Record (W–L)</th>
                       <th>Win %</th>
                       <th>Streak</th>
-                      <th aria-label="actions" />
+                      <th aria-label="actions" style={{ width: 80 }} />
                     </tr>
                   </thead>
                   <tbody>
@@ -191,13 +240,13 @@ export default function Dashboard() {
                         </td>
                         <td>{r.matches}</td>
                         <td>
-                          <span style={{ color: 'var(--accent)', fontWeight: 600 }}>{r.wins}</span>
+                          <span style={{ color: '#34d399', fontWeight: 600 }}>{r.wins}</span>
                           {' – '}
-                          <span style={{ color: 'var(--danger)', fontWeight: 600 }}>{r.losses}</span>
+                          <span style={{ color: '#f87171', fontWeight: 600 }}>{r.losses}</span>
                         </td>
                         <td
                           style={{
-                            color: r.winRate >= 0.5 ? 'var(--accent)' : 'var(--danger)',
+                            color: r.winRate >= 0.5 ? '#34d399' : '#f87171',
                             fontWeight: 600,
                           }}
                         >
@@ -213,11 +262,9 @@ export default function Dashboard() {
                           )}
                         </td>
                         <td>
-                          <span
-                            className="btn btn-ghost btn-sm"
-                            style={{ padding: '2px 8px', fontSize: 12 }}
-                          >
-                            H2H →
+                          <span className="btn btn-ghost btn-sm">
+                            <span>H2H</span>
+                            <ArrowRight size={12} />
                           </span>
                         </td>
                       </tr>
@@ -229,10 +276,14 @@ export default function Dashboard() {
           )}
 
           <div className="card">
-            <div className="row-between">
-              <h2>Recent matches</h2>
-              <Link to="/matches" className="small">
-                View all →
+            <div className="card-header row-between" style={{ marginBottom: 12 }}>
+              <div className="card-title-row">
+                <HistoryIcon size={16} className="card-header-icon" />
+                <h2 className="card-title">Recent Matches</h2>
+              </div>
+              <Link to="/matches" className="link-subtle">
+                <span>View all</span>
+                <ArrowRight size={13} />
               </Link>
             </div>
             <MatchList matches={recent} emptyText="No matches yet." />

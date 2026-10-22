@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Plus, RotateCcw } from 'lucide-react';
 import { useMatches } from '../hooks/useMatches';
 import MatchList from '../components/MatchList';
 import { matchWon } from '../lib/stats';
@@ -45,23 +46,25 @@ export default function History() {
     <>
       <div className="row-between" style={{ marginBottom: 20 }}>
         <div>
-          <h1 className="page-title">Matches</h1>
+          <h1 className="page-title">Match History</h1>
           <p className="page-sub">
-            {filtered.length} of {matches.length} matches
+            Showing {filtered.length} of {matches.length} matches
             {hasFilters && (
               <button
                 type="button"
                 onClick={resetFilters}
                 className="btn btn-ghost btn-sm"
-                style={{ marginLeft: 12, padding: '2px 8px', fontSize: 12 }}
+                style={{ marginLeft: 8, padding: '2px 8px', fontSize: 12, display: 'inline-flex', verticalAlign: 'middle' }}
               >
-                Reset filters
+                <RotateCcw size={12} style={{ marginRight: 4 }} />
+                <span>Reset</span>
               </button>
             )}
           </p>
         </div>
         <Link to="/new" className="btn btn-primary">
-          + Add match
+          <Plus size={15} />
+          <span>Add match</span>
         </Link>
       </div>
 
@@ -93,8 +96,8 @@ export default function History() {
             <label htmlFor="f-res">Result</label>
             <select id="f-res" value={res} onChange={(e) => setRes(e.target.value as 'all' | 'W' | 'L')}>
               <option value="all">All</option>
-              <option value="W">Wins</option>
-              <option value="L">Losses</option>
+              <option value="W">Wins only</option>
+              <option value="L">Losses only</option>
             </select>
           </div>
           <div className="field">
@@ -107,7 +110,9 @@ export default function History() {
           </div>
         </div>
         {loading ? (
-          <p className="muted">Loading…</p>
+          <div className="loading-container" style={{ minHeight: 140 }}>
+            <div className="spinner" />
+          </div>
         ) : (
           <MatchList
             matches={filtered}

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { AlertTriangle } from 'lucide-react';
 
 interface ConfirmModalProps {
   isOpen: boolean;
@@ -41,10 +42,19 @@ export default function ConfirmModal({
       aria-labelledby="modal-title"
     >
       <div className="modal-box" onClick={(e) => e.stopPropagation()}>
-        <h3 id="modal-title">{title}</h3>
-        <p>{message}</p>
+        <div className="modal-header">
+          {isDanger && (
+            <div className="modal-icon-danger">
+              <AlertTriangle size={18} />
+            </div>
+          )}
+          <div>
+            <h3 id="modal-title">{title}</h3>
+            <p className="modal-description">{message}</p>
+          </div>
+        </div>
         <div className="modal-actions">
-          <button type="button" className="btn btn-ghost" onClick={onCancel}>
+          <button type="button" className="btn btn-outline" onClick={onCancel}>
             {cancelLabel}
           </button>
           <button
@@ -62,4 +72,3 @@ export default function ConfirmModal({
     </div>
   );
 }
-

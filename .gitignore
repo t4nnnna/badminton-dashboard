@@ -2,3 +2,8 @@ node_modules
 dist
 *.local
 .DS_Store
+
+# Local tool caches and binaries
+.hermes/
+.impeccable/
+*.exe

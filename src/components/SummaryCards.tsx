@@ -1,3 +1,4 @@
+import { Calendar, Trophy, Flame, Activity } from 'lucide-react';
 import type { Summary } from '../lib/stats';
 
 const pct = (n: number) => `${Math.round(n * 100)}%`;
@@ -18,26 +19,41 @@ export default function SummaryCards({ s }: { s: Summary }) {
   return (
     <div className="cards-grid">
       <div className="stat">
-        <div className="label">Matches</div>
+        <div className="stat-top">
+          <span className="label">Matches</span>
+          <Calendar size={15} className="stat-icon" />
+        </div>
         <div className="value">{s.total}</div>
         <div className="sub">{s.thisMonth} this month</div>
       </div>
+
       <div className="stat">
-        <div className="label">Win rate</div>
+        <div className="stat-top">
+          <span className="label">Win rate</span>
+          <Trophy size={15} className="stat-icon" />
+        </div>
         <div className="value">{pct(s.winRate)}</div>
         <div className="sub">
           {s.wins}W – {s.losses}L
         </div>
       </div>
+
       <div className="stat">
-        <div className="label">Current streak</div>
+        <div className="stat-top">
+          <span className="label">Current streak</span>
+          <Flame size={15} className="stat-icon" />
+        </div>
         <div className={`value ${s.total ? (s.streak.type === 'W' ? 'win' : 'lose') : ''}`}>
           {streakText}
         </div>
         <div className="sub">consecutive</div>
       </div>
+
       <div className="stat">
-        <div className="label">Points / set (avg)</div>
+        <div className="stat-top">
+          <span className="label">Points / set (avg)</span>
+          <Activity size={15} className="stat-icon" />
+        </div>
         <div className="value">{s.avgPointsPerSet.toFixed(1)}</div>
         <div className="sub">
           {s.pointsFor} for · {s.pointsAgainst} against

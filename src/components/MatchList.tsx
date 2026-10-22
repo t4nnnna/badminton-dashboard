@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Trash2, User, Users } from 'lucide-react';
 import type { Match } from '../types';
 import { matchWon } from '../lib/stats';
 import { fmtDate, matchScore, opponentNames } from '../lib/format';
@@ -25,12 +26,12 @@ export default function MatchList({ matches, onDelete, emptyText }: Props) {
         <table className="matches">
           <thead>
             <tr>
-              <th>Res</th>
-              <th>Date</th>
+              <th style={{ width: 64 }}>Result</th>
+              <th style={{ width: 110 }}>Date</th>
               <th>Opponent(s)</th>
               <th>Format</th>
               <th>Score</th>
-              <th aria-label="actions" />
+              {onDelete && <th aria-label="actions" style={{ width: 44 }} />}
             </tr>
           </thead>
           <tbody>
@@ -51,19 +52,28 @@ export default function MatchList({ matches, onDelete, emptyText }: Props) {
                   }}
                 >
                   <td>
-                    <span className={`badge ${won ? 'w' : 'l'}`}>{won ? 'W' : 'L'}</span>
+                    <span className={`badge ${won ? 'w' : 'l'}`}>{won ? 'WIN' : 'LOSS'}</span>
                   </td>
                   <td className="muted">{fmtDate(m.date)}</td>
                   <td>
-                    <strong>{opponentNames(m.opponents)}</strong>
+                    <strong className="opponent-name">{opponentNames(m.opponents)}</strong>
                   </td>
-                  <td className="muted">
-                    {m.format}
-                    {m.format === 'doubles' && m.partner ? ` · w/ ${m.partner}` : ''}
-                  </td>
-                  <td>{matchScore(m)}</td>
                   <td>
-                    {onDelete && (
+                    <span className="format-cell">
+                      {m.format === 'doubles' ? (
+                        <Users size={13} className="format-icon" />
+                      ) : (
+                        <User size={13} className="format-icon" />
+                      )}
+                      <span>
+                        {m.format}
+                        {m.format === 'doubles' && m.partner ? ` · w/ ${m.partner}` : ''}
+                      </span>
+                    </span>
+                  </td>
+                  <td className="score-cell">{matchScore(m)}</td>
+                  {onDelete && (
+                    <td>
                       <button
                         type="button"
                         className="icon-btn"
@@ -74,10 +84,10 @@ export default function MatchList({ matches, onDelete, emptyText }: Props) {
                           setMatchToDelete(m);
                         }}
                       >
-                        ✕
+                        <Trash2 size={14} />
                       </button>
-                    )}
-                  </td>
+                    </td>
+                  )}
                 </tr>
               );
             })}
@@ -88,18 +98,16 @@ export default function MatchList({ matches, onDelete, emptyText }: Props) {
       <ConfirmModal
         isOpen={Boolean(matchToDelete)}
         title="Delete match"
-        message={
-          matchToDelete
-            ? `Are you sure you want to delete the match vs ${opponentNames(matchToDelete.opponents)} on ${fmtDate(matchToDelete.date)}? This cannot be undone.`
-            : ''
-        }
+        message={`Are you sure you want to delete the match vs ${
+          matchToDelete ? opponentNames(matchToDelete.opponents) : ''
+        }? This cannot be undone.`}
         confirmLabel="Delete"
         isDanger
         onConfirm={() => {
           if (matchToDelete && onDelete) {
             onDelete(matchToDelete.id);
-            setMatchToDelete(null);
           }
+          setMatchToDelete(null);
         }}
         onCancel={() => setMatchToDelete(null)}
       />
